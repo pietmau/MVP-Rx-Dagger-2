@@ -10,7 +10,7 @@ import dagger.Component;
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
  */
 @Singleton // TODO sicuri???
-@Component(modules = {MainModule.class})
+@Component(modules = {StarWarsModule.class})
 public interface MainComponent {
 
     void inject(MainActivity mainActivity);
