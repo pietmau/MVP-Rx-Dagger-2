@@ -1,5 +1,5 @@
 
-package com.pietrantuono.offser.api.pojos;
+package com.pietrantuono.offser.model.api.pojos;
 
 import java.util.ArrayList;
 import java.util.List;

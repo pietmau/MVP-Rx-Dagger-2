@@ -2,12 +2,12 @@ package com.pietrantuono.offser.dagger;
 
 import android.app.Activity;
 
-import com.pietrantuono.offser.MainModel;
-import com.pietrantuono.offser.MainModelImpl;
-import com.pietrantuono.offser.MainViewPresenter;
-import com.pietrantuono.offser.MainViewPresenterImplementation;
-import com.pietrantuono.offser.api.StarWarsApi;
-import com.pietrantuono.offser.api.StarWarsApiRetrofit;
+import com.pietrantuono.offser.model.MainModel;
+import com.pietrantuono.offser.model.MainModelImpl;
+import com.pietrantuono.offser.presenter.MainViewPresenter;
+import com.pietrantuono.offser.presenter.MainViewPresenterImplementation;
+import com.pietrantuono.offser.model.api.StarWarsApi;
+import com.pietrantuono.offser.model.api.StarWarsApiRetrofit;
 
 import javax.inject.Singleton;
 

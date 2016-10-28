@@ -1,6 +1,6 @@
 package com.pietrantuono.offser.dagger;
 
-import com.pietrantuono.offser.MainActivity;
+import com.pietrantuono.offser.view.MainActivity;
 
 import javax.inject.Singleton;
 

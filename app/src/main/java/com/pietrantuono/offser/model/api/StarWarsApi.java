@@ -1,10 +1,9 @@
-package com.pietrantuono.offser.api;
+package com.pietrantuono.offser.model.api;
 
-import com.pietrantuono.offser.api.pojos.Film;
+import com.pietrantuono.offser.model.api.pojos.Film;
 
 import java.util.List;
 
-import retrofit2.Call;
 import retrofit2.http.GET;
 import rx.Observable;
 

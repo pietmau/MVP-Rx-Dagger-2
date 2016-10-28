@@ -1,12 +1,18 @@
-package com.pietrantuono.offser;
+package com.pietrantuono.offser.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
+import com.jakewharton.rxbinding.view.RxView;
+import com.pietrantuono.offser.presenter.MainViewPresenter;
+import com.pietrantuono.offser.R;
 import com.pietrantuono.offser.dagger.DaggerMainComponent;
 import com.pietrantuono.offser.dagger.StarWarsModule;
 
 import javax.inject.Inject;
+
+import rx.Observable;
 
 public class MainActivity extends AppCompatActivity implements MainView {
     @Inject

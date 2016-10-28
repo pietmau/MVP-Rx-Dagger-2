@@ -1,4 +1,4 @@
-package com.pietrantuono.offser;
+package com.pietrantuono.offser.model;
 
 import android.app.Activity;
 

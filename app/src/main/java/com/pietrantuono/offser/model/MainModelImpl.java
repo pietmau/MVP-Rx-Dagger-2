@@ -1,8 +1,8 @@
-package com.pietrantuono.offser;
+package com.pietrantuono.offser.model;
 
 import android.app.Activity;
 
-import com.pietrantuono.offser.api.StarWarsApi;
+import com.pietrantuono.offser.model.api.StarWarsApi;
 
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
