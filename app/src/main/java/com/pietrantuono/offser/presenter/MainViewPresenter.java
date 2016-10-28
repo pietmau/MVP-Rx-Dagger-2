@@ -2,7 +2,7 @@ package com.pietrantuono.offser.presenter;
 
 import android.os.Bundle;
 
-import com.pietrantuono.offser.view.MainView;
+import com.pietrantuono.offser.view.main.MainView;
 
 import rx.Observable;
 
@@ -20,4 +20,6 @@ public interface MainViewPresenter {
     void onResume();
 
     void addGoToFilmsObservable(Observable<Void> goToFilms);
+
+    void onGoToFilmsClicked();
 }

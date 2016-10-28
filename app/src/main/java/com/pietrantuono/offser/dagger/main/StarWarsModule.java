@@ -1,4 +1,4 @@
-package com.pietrantuono.offser.dagger;
+package com.pietrantuono.offser.dagger.main;
 
 import android.app.Activity;
 
@@ -25,8 +25,10 @@ public class StarWarsModule {
         this.activity = activity;
     }
 
+    public StarWarsModule() {
+    }
+
     @Provides
-    @Singleton
     MainViewPresenter provideMainViewPresenter(MainModel module) {
         return new MainViewPresenterImplementation(module);
     }

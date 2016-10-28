@@ -1,4 +1,4 @@
-package com.pietrantuono.offser.view;
+package com.pietrantuono.offser.view.main;
 
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
