@@ -8,6 +8,7 @@ import com.pietrantuono.offser.presenter.MainViewPresenter;
 import com.pietrantuono.offser.presenter.MainViewPresenterImplementation;
 import com.pietrantuono.offser.model.api.StarWarsApi;
 import com.pietrantuono.offser.model.api.StarWarsApiRetrofit;
+import com.pietrantuono.offser.view.films.FilmsFragment;
 
 import javax.inject.Singleton;
 
@@ -18,14 +19,11 @@ import dagger.Provides;
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
  */
 @Module
-public class StarWarsModule {
+public class MainModule {
     private Activity activity;
 
-    public StarWarsModule(Activity activity) {
+    public MainModule(Activity activity) {
         this.activity = activity;
-    }
-
-    public StarWarsModule() {
     }
 
     @Provides
@@ -43,5 +41,11 @@ public class StarWarsModule {
     @Singleton
     StarWarsApi provideStarWarsApi() {
         return new StarWarsApiRetrofit();
+    }
+
+    @Provides
+    @Singleton
+    FilmsFragment provideFilmsFragment() {
+        return FilmsFragment.newInstance();
     }
 }

@@ -4,21 +4,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.pietrantuono.offser.dagger.main.DaggerMainComponent;
+import com.pietrantuono.offser.dagger.main.MainComponent;
+import com.pietrantuono.offser.dagger.main.MainModule;
 import com.pietrantuono.offser.presenter.MainViewPresenter;
 import com.pietrantuono.offser.R;
-import com.pietrantuono.offser.dagger.main.StarWarsModule;
+import com.pietrantuono.offser.view.films.FilmsFragment;
 
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements MainView {
     @Inject
     MainViewPresenter mainViewpresenter;
+    private MainComponent mainComponent;
+    private FilmsFragment ff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initViews(savedInstanceState);
-        initGraph();
+        initDependancyGraph();
         mainViewpresenter.onCreate(MainActivity.this, savedInstanceState);
     }
 
@@ -27,11 +31,12 @@ public class MainActivity extends AppCompatActivity implements MainView {
         findViewById(R.id.gotofilms).setOnClickListener(view -> mainViewpresenter.onGoToFilmsClicked());
     }
 
-    private void initGraph() {
-        DaggerMainComponent.builder()
-                .starWarsModule(new StarWarsModule(MainActivity.this))
-                .build()
-                .inject(MainActivity.this);
+    private void initDependancyGraph() {
+        mainComponent = DaggerMainComponent.builder()
+                .mainModule(new MainModule(MainActivity.this))
+                .build();
+        mainComponent.inject(MainActivity.this);
+        ff=mainComponent.provideFilmsFragment();
     }
 
     @Override
@@ -56,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void navigateToFilms() {
+
     }
 
     @Override
