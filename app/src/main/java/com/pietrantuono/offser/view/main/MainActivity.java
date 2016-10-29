@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Inject
     MainViewPresenter mainViewpresenter;
     private FragmentManager fragmentManager;
+    private MainComponent injector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     private void initDependancyGraph() {
-        MainComponent injector = DaggerMainComponent.builder()
+        injector = DaggerMainComponent.builder()
                 .mainModule(new MainModule(MainActivity.this))
                 .build();
         injector.inject(MainActivity.this);
@@ -59,5 +60,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
         }
         FragmentTransaction ft = fragmentManager.beginTransaction().replace(R.id.container, personsFragment, PersonsFragment.PERSONS_TAG);
         ft.commit();
+    }
+
+    public MainComponent getMainComponent() {
+        return injector;
     }
 }

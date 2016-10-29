@@ -4,6 +4,7 @@ import com.pietrantuono.offser.dagger.main.MainComponent;
 import com.pietrantuono.offser.view.films.FilmsFragment;
 
 import dagger.Component;
+import dagger.Subcomponent;
 
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
