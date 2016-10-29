@@ -1,6 +1,7 @@
 package com.pietrantuono.offser.dagger.main;
 
 import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 
 import com.pietrantuono.offser.model.StarWarsModel;
 import com.pietrantuono.offser.model.StarWarsModelImpl;
@@ -20,9 +21,9 @@ import dagger.Provides;
  */
 @Module
 public class MainModule {
-    private Activity activity;
+    private AppCompatActivity activity;
 
-    public MainModule(Activity activity) {
+    public MainModule(AppCompatActivity activity) {
         this.activity = activity;
     }
 

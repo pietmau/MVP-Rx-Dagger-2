@@ -2,6 +2,7 @@ package com.pietrantuono.offser.model;
 
 import android.app.Activity;
 
+import com.pietrantuono.offser.model.api.StarWarsApi;
 import com.pietrantuono.offser.model.api.pojos.AllFilms;
 import com.pietrantuono.offser.model.api.pojos.Film;
 
@@ -16,4 +17,6 @@ public interface StarWarsModel {
     void subscribeToFilms(Observer<? super AllFilms> observer);
 
     void unSubscribeToFilms();
+
+
 }
