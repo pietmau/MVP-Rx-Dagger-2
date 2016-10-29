@@ -55,7 +55,7 @@ public class StarWarsModelImpl extends Fragment implements StarWarsModel {  //TO
 
     @Override
     public void unSubscribeToFilms() {
-        if (filmsSubscription != null && !filmsSubscription.isUnsubscribed()) {//TODo we need this?
+        if (filmsSubscription != null) {//TODo we need this?
             filmsSubscription.unsubscribe();
         }
     }
