@@ -46,7 +46,6 @@ public class FilmsFragment extends Fragment {
                 .filmsModule(new FilmsModule())
                 .build()
                 .inject(FilmsFragment.this);
-        foo();
     }
 
     private MainComponent getMainComponenet() {
