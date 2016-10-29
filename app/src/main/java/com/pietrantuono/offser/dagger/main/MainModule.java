@@ -2,8 +2,8 @@ package com.pietrantuono.offser.dagger.main;
 
 import android.app.Activity;
 
-import com.pietrantuono.offser.model.MainModel;
-import com.pietrantuono.offser.model.MainModelImpl;
+import com.pietrantuono.offser.model.StarWarsModel;
+import com.pietrantuono.offser.model.StarWarsModelImpl;
 import com.pietrantuono.offser.presenter.MainViewPresenter;
 import com.pietrantuono.offser.presenter.MainViewPresenterImplementation;
 import com.pietrantuono.offser.model.api.StarWarsApi;
@@ -27,14 +27,14 @@ public class MainModule {
     }
 
     @Provides
-    MainViewPresenter provideMainViewPresenter(MainModel module) {
+    MainViewPresenter provideMainViewPresenter(StarWarsModel module) {
         return new MainViewPresenterImplementation(module);
     }
 
     @Provides
     @Singleton
-    MainModel provideMainModel(StarWarsApi starWarsApi) {
-        return MainModelImpl.getInstance(activity, starWarsApi);
+    StarWarsModel provideMainModel(StarWarsApi starWarsApi) {
+        return StarWarsModelImpl.getInstance(activity, starWarsApi);
     }
 
     @Provides

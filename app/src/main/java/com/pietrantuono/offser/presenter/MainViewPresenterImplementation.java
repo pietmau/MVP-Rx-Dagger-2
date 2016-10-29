@@ -2,11 +2,8 @@ package com.pietrantuono.offser.presenter;
 
 import android.os.Bundle;
 
-import com.pietrantuono.offser.model.MainModel;
-import com.pietrantuono.offser.presenter.MainViewPresenter;
+import com.pietrantuono.offser.model.StarWarsModel;
 import com.pietrantuono.offser.view.main.MainView;
-
-import rx.Observable;
 
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
@@ -14,7 +11,7 @@ import rx.Observable;
 public class MainViewPresenterImplementation implements MainViewPresenter {
     private MainView mainView;
 
-    public MainViewPresenterImplementation(MainModel mainModel) {
+    public MainViewPresenterImplementation(StarWarsModel starWarsModel) {
     }
 
     @Override
