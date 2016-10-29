@@ -26,27 +26,6 @@ public class StarWarsModelImpl implements StarWarsModel {  //TODO change name
     public StarWarsModelImpl(StarWarsApi starWarsApi) {
         this.starWarsApi = starWarsApi;
         cahcedFilmsObservable = starWarsApi.getAllFilms().cache();
-        cahcedFilmsObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<AllFilms>() {
-            @Override
-            public void onCompleted() {
-                foo();
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                foo();
-            }
-
-            @Override
-            public void onNext(AllFilms allFilms) {
-                foo();
-            }
-        });
-    }
-
-    private void foo() {
-
-
     }
 
     public static StarWarsModel getInstance(Activity activity, StarWarsApi starWarsApi) {

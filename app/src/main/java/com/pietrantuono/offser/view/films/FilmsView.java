@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface FilmsView {
     void showFilms(List<Film> films);
+
+    void showError(String message);
 }

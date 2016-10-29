@@ -44,17 +44,15 @@ public class FilmPresenterImpl implements FilmsPresenter {
 
         @Override
         public void onCompleted() {
-            Log.d(TAG, "onCompleted");
         }
 
         @Override
         public void onError(Throwable e) {
-            Log.d(TAG, "onError");
+            view.showError(e.getMessage());
         }
 
         @Override
         public void onNext(AllFilms allFilms) {
-            Log.d(TAG, "onNext");
             if (allFilms == null || allFilms.getFilms() == null) {
                 return;
             }

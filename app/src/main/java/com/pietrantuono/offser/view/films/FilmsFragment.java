@@ -44,18 +44,20 @@ public class FilmsFragment extends Fragment implements FilmsView{
         View view = inflater.inflate(R.layout.fragment_films, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.films_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        filmsPresenter.setView(FilmsFragment.this);
         return view;
     }
 
+
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         super.onCreate(savedInstanceState);
         DaggerFilmComponent.builder()
                 .mainComponent(getMainComponenet())
                 .filmsModule(new FilmsModule())
                 .build()
                 .inject(FilmsFragment.this);
+        filmsPresenter.setView(FilmsFragment.this);
     }
 
     @Override
@@ -77,5 +79,10 @@ public class FilmsFragment extends Fragment implements FilmsView{
     @Override
     public void showFilms(List<Film> films) {
         recyclerView.setAdapter(new FilmsAdapter(films));
+    }
+
+    @Override
+    public void showError(String message) {
+
     }
 }
