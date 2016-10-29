@@ -1,5 +1,6 @@
 package com.pietrantuono.offser.presenter.main;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import com.pietrantuono.offser.model.StarWarsModel;
@@ -12,7 +13,7 @@ import com.pietrantuono.offser.view.main.MainView;
 public class MainViewPresenterImplementation implements MainViewPresenter {
     private MainView mainView;
 
-    public MainViewPresenterImplementation(StarWarsModel starWarsModel) {
+    public MainViewPresenterImplementation() {
     }
 
     @Override
@@ -32,4 +33,5 @@ public class MainViewPresenterImplementation implements MainViewPresenter {
     public void onGoToPersonsClicked() {
         mainView.navigateToPersons();
     }
+
 }

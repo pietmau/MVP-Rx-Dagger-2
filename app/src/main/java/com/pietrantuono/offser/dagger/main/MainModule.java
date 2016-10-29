@@ -8,7 +8,6 @@ import com.pietrantuono.offser.presenter.main.MainViewPresenter;
 import com.pietrantuono.offser.presenter.main.MainViewPresenterImplementation;
 import com.pietrantuono.offser.model.api.StarWarsApi;
 import com.pietrantuono.offser.model.api.StarWarsApiRetrofit;
-import com.pietrantuono.offser.view.films.FilmsFragment;
 
 import javax.inject.Singleton;
 
@@ -27,12 +26,12 @@ public class MainModule {
     }
 
     @Provides
-    MainViewPresenter provideMainViewPresenter(StarWarsModel module) {
-        return new MainViewPresenterImplementation(module);
+    MainViewPresenter provideMainViewPresenter() {
+        return new MainViewPresenterImplementation();
     }
 
-    @Provides
     @Singleton
+    @Provides
     StarWarsModel provideMainModel(StarWarsApi starWarsApi) {
         return StarWarsModelImpl.getInstance(activity, starWarsApi);
     }
@@ -43,9 +42,4 @@ public class MainModule {
         return new StarWarsApiRetrofit();
     }
 
-    @Provides
-    @Singleton
-    FilmsFragment provideFilmsFragment() {
-        return FilmsFragment.newInstance();
-    }
 }

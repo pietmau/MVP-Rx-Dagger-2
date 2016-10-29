@@ -2,16 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/films"
+        android:enabled="true"
+        android:icon="@drawable/ic_local_movies_black_24dp"
+        android:title="@string/films"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/people"
         android:enabled="true"
         android:icon="@drawable/ic_people_black_24dp"
-        app:showAsAction="ifRoom"
-        android:title="@string/persons" />
-    <item
-        android:enabled="true"
-        android:id="@+id/films"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_local_movies_black_24dp"
-        android:title="@string/films" />
-
+        android:title="@string/persons"
+        app:showAsAction="ifRoom" />
 </menu>

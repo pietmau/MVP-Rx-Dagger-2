@@ -21,8 +21,8 @@ public interface StarWarsModel {
 
     void unSubscribeToFilms();
 
-
     void unSubscribeToPeople();
 
     void subscribeToPeople(Observer<? super AllPeople> observer);
+
 }
