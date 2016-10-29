@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.pietrantuono.offser.R;
-import com.pietrantuono.offser.model.api.pojos.Film;
 import com.pietrantuono.offser.model.api.pojos.Person;
 
 /**
@@ -34,7 +33,7 @@ class PersonHolder extends RecyclerView.ViewHolder {
         skinColorView = (TextView) itemView.findViewById(R.id.skin);
     }
 
-    public void bind(Person person) {// TODO remove repetitions
+    public void bind(Person person) {
         String notAvailable = nameView.getContext().getResources().getString(R.string.not_available);
         String name = person.getName() == null ? notAvailable : person.getName();
         nameView.setText(name);
@@ -53,8 +52,8 @@ class PersonHolder extends RecyclerView.ViewHolder {
         hairColorView.setText(haircolor);
 
 
-        String heigh = person.getHeight() == null ? notAvailable : person.getHeight();
-        heightView.setText(heigh);
+        String height = person.getHeight() == null ? notAvailable : person.getHeight();
+        heightView.setText(height);
 
 
         String mass = person.getMass() == null ? notAvailable : person.getMass();

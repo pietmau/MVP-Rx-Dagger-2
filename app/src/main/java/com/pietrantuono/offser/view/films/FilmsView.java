@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
  */
-public interface FilmsView extends StarWarsListView{
+public interface FilmsView extends StarWarsView {
 
     void showFilms(List<Film> films);
 }

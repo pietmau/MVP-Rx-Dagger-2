@@ -18,7 +18,7 @@ import dagger.Provides;
  */
 @Module
 public class MainModule {
-    private StarWarsApplication application;
+    private final StarWarsApplication application;
 
     public MainModule(StarWarsApplication application) {
         this.application = application;

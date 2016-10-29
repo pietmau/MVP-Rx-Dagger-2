@@ -21,13 +21,14 @@ public class StarWarsApplication extends Application {
     private Observable<AllFilms> cachedFilmsObservable;
     private Observable<AllPeople> cachedPeopleObservable;
     private MainComponent injector;
-    @Inject StarWarsApi starWarsApi;
+    @Inject
+    StarWarsApi starWarsApi;
 
     @Override
     public void onCreate() {
         super.onCreate();
         injector = DaggerMainComponent.builder()
-                .mainModule(new MainModule((StarWarsApplication.this)))
+                .mainModule(new MainModule(StarWarsApplication.this))
                 .build();
         injector.inject(StarWarsApplication.this);
         cachedFilmsObservable = starWarsApi.getAllFilms().cache();

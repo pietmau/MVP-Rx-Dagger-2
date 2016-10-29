@@ -1,14 +1,7 @@
 package com.pietrantuono.offser.model;
 
-import android.app.Activity;
-
-import com.pietrantuono.offser.model.api.StarWarsApi;
 import com.pietrantuono.offser.model.api.pojos.AllFilms;
 import com.pietrantuono.offser.model.api.pojos.AllPeople;
-import com.pietrantuono.offser.model.api.pojos.Film;
-import com.pietrantuono.offser.presenter.people.PeoplePresenterImpl;
-
-import java.util.List;
 
 import rx.Observer;
 

@@ -2,9 +2,6 @@ package com.pietrantuono.offser.model.api;
 
 import com.pietrantuono.offser.model.api.pojos.AllFilms;
 import com.pietrantuono.offser.model.api.pojos.AllPeople;
-import com.pietrantuono.offser.model.api.pojos.Film;
-
-import java.util.List;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;

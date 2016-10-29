@@ -28,19 +28,19 @@ public class Film {
     private String releaseDate;
     @SerializedName("characters")
     @Expose
-    private List<String> characters = new ArrayList<String>();
+    private List<String> characters = new ArrayList<>();
     @SerializedName("planets")
     @Expose
-    private List<String> planets = new ArrayList<String>();
+    private List<String> planets = new ArrayList<>();
     @SerializedName("starships")
     @Expose
-    private List<String> starships = new ArrayList<String>();
+    private List<String> starships = new ArrayList<>();
     @SerializedName("vehicles")
     @Expose
-    private List<Object> vehicles = new ArrayList<Object>();
+    private List<Object> vehicles = new ArrayList<>();
     @SerializedName("species")
     @Expose
-    private List<String> species = new ArrayList<String>();
+    private List<String> species = new ArrayList<>();
     @SerializedName("created")
     @Expose
     private String created;

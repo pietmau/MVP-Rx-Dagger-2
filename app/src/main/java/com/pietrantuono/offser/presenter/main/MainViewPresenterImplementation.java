@@ -1,9 +1,9 @@
 package com.pietrantuono.offser.presenter.main;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.view.MenuItem;
 
-import com.pietrantuono.offser.model.StarWarsModel;
+import com.pietrantuono.offser.R;
 import com.pietrantuono.offser.presenter.main.MainViewPresenter;
 import com.pietrantuono.offser.view.main.MainView;
 
@@ -12,9 +12,6 @@ import com.pietrantuono.offser.view.main.MainView;
  */
 public class MainViewPresenterImplementation implements MainViewPresenter {
     private MainView mainView;
-
-    public MainViewPresenterImplementation() {
-    }
 
     @Override
     public void onCreate(MainView mainView, Bundle savedInstanceState) {
@@ -32,6 +29,19 @@ public class MainViewPresenterImplementation implements MainViewPresenter {
     @Override
     public void onGoToPersonsClicked() {
         mainView.navigateToPersons();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.people:
+                onGoToPersonsClicked();
+                break;
+            case R.id.films:
+                onGoToFilmsClicked();
+                break;
+        }
+        return true;
     }
 
 }

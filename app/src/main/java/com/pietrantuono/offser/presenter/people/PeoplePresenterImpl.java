@@ -1,10 +1,7 @@
 package com.pietrantuono.offser.presenter.people;
 
 import com.pietrantuono.offser.model.StarWarsModel;
-import com.pietrantuono.offser.model.api.pojos.AllFilms;
 import com.pietrantuono.offser.model.api.pojos.AllPeople;
-import com.pietrantuono.offser.presenter.films.FilmsPresenter;
-import com.pietrantuono.offser.view.films.FilmsView;
 import com.pietrantuono.offser.view.persons.PeopleView;
 
 import rx.Observer;
@@ -15,7 +12,7 @@ import rx.Observer;
 public class PeoplePresenterImpl implements PeoplePresenter {
     private final StarWarsModel starWarsModel;
     private PeopleView view;
-    private SimpleObserver simpleObserver;
+    private final SimpleObserver simpleObserver;
 
     public PeoplePresenterImpl(StarWarsModel starWarsModel) {
         this.starWarsModel = starWarsModel;

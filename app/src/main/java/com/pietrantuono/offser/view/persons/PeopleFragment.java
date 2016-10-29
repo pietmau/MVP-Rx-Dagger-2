@@ -51,7 +51,7 @@ public class PeopleFragment extends Fragment implements PeopleView {
         super.onActivityCreated(savedInstanceState);
         super.onCreate(savedInstanceState);
         DaggerPeopleComponent.builder()
-                .mainComponent(getMainComponenet())
+                .mainComponent(getMainComponent())
                 .peopleModule(new PeopleModule())
                 .build()
                 .inject(PeopleFragment.this);
@@ -70,7 +70,7 @@ public class PeopleFragment extends Fragment implements PeopleView {
         peoplePresenter.onResume();
     }
 
-    private MainComponent getMainComponenet() {
+    private MainComponent getMainComponent() {
         return ((MainActivity) getActivity()).getInjector();
     }
 

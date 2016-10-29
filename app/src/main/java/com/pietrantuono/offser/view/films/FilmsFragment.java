@@ -23,7 +23,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 
-public class FilmsFragment extends Fragment implements FilmsView{
+public class FilmsFragment extends Fragment implements FilmsView {
     public static final String FILMS_TAG = "films";
     @Inject
     FilmsPresenter filmsPresenter;
@@ -51,7 +51,7 @@ public class FilmsFragment extends Fragment implements FilmsView{
         super.onActivityCreated(savedInstanceState);
         super.onCreate(savedInstanceState);
         DaggerFilmComponent.builder()
-                .mainComponent(getMainComponenet())
+                .mainComponent(getMainComponent())
                 .filmsModule(new FilmsModule())
                 .build()
                 .inject(FilmsFragment.this);
@@ -70,7 +70,7 @@ public class FilmsFragment extends Fragment implements FilmsView{
         filmsPresenter.onResume();
     }
 
-    private MainComponent getMainComponenet() {
+    private MainComponent getMainComponent() {
         return ((MainActivity) getActivity()).getInjector();
     }
 

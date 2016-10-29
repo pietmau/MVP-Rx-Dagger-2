@@ -20,7 +20,7 @@ public class AllPeople {
     private Object previous;
     @SerializedName("results")
     @Expose
-    private List<Person> persons = new ArrayList<Person>();
+    private List<Person> persons = new ArrayList<>();
 
     /**
      * 

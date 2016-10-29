@@ -20,7 +20,7 @@ public class AllFilms {
     private Object previous;
     @SerializedName("results")
     @Expose
-    private List<Film> films = new ArrayList<Film>();
+    private List<Film> films = new ArrayList<>();
 
     /**
      * 

@@ -1,13 +1,8 @@
 package com.pietrantuono.offser.presenter.films;
 
-import android.util.Log;
-
 import com.pietrantuono.offser.model.StarWarsModel;
 import com.pietrantuono.offser.model.api.pojos.AllFilms;
-import com.pietrantuono.offser.model.api.pojos.Film;
 import com.pietrantuono.offser.view.films.FilmsView;
-
-import java.util.List;
 
 import rx.Observer;
 
@@ -17,7 +12,7 @@ import rx.Observer;
 public class FilmPresenterImpl implements FilmsPresenter {
     private final StarWarsModel starWarsModel;
     private FilmsView view;
-    private SimpleObserver simpleObserver;
+    private final SimpleObserver simpleObserver;
 
     public FilmPresenterImpl(StarWarsModel starWarsModel) {
         this.starWarsModel = starWarsModel;
@@ -40,7 +35,6 @@ public class FilmPresenterImpl implements FilmsPresenter {
     }
 
     private class SimpleObserver implements Observer<AllFilms> {
-        private final String TAG = SimpleObserver.class.getSimpleName();
 
         @Override
         public void onCompleted() {

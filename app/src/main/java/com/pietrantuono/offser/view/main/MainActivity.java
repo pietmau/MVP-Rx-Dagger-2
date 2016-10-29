@@ -1,15 +1,15 @@
 package com.pietrantuono.offser.view.main;
 
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.pietrantuono.offser.StarWarsApplication;
-import com.pietrantuono.offser.dagger.main.DaggerMainComponent;
 import com.pietrantuono.offser.dagger.main.MainComponent;
-import com.pietrantuono.offser.dagger.main.MainModule;
 import com.pietrantuono.offser.presenter.main.MainViewPresenter;
 import com.pietrantuono.offser.R;
 import com.pietrantuono.offser.view.films.FilmsFragment;
@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Inject
     MainViewPresenter mainViewpresenter;
     private FragmentManager fragmentManager;
-    private MainComponent injector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +34,11 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private void initViews() {
         setContentView(R.layout.activity_main);
         ((BottomNavigationView) findViewById(R.id.navigation))
-                .setOnNavigationItemSelectedListener(item -> {
-                    switch (item.getItemId()) {
-                        case R.id.people:
-                            mainViewpresenter.onGoToPersonsClicked();
-                            break;
-                        case R.id.films:
-                            mainViewpresenter.onGoToFilmsClicked();
-                            break;
+                .setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        return mainViewpresenter.onNavigationItemSelected(item);
                     }
-                    return true;
                 });
     }
 
@@ -73,6 +67,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     public MainComponent getInjector() {
-        return ((StarWarsApplication)getApplication()).getInjector();
+        return ((StarWarsApplication) getApplication()).getInjector();
     }
 }

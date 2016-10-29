@@ -27,18 +27,20 @@ class FilmsHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(Film film) {
-        String title = film.getTitle() == null ? titleView.getContext().getResources().getString(R.string.not_available) : film.getTitle();
+        String notAvailable = titleView.getContext().getResources().getString(R.string.not_available);
+
+        String title = film.getTitle() == null ? notAvailable : film.getTitle();
         titleView.setText(title);
 
         episodeView.setText(Integer.toString(film.getEpisodeId()));
 
-        String director = film.getDirector() == null ? titleView.getContext().getResources().getString(R.string.not_available) : film.getDirector();
+        String director = film.getDirector() == null ? notAvailable : film.getDirector();
         directorView.setText(director);
 
-        String producer = film.getProducer() == null ? titleView.getContext().getResources().getString(R.string.not_available) : film.getProducer();
+        String producer = film.getProducer() == null ? notAvailable : film.getProducer();
         producerView.setText(producer);
 
-        String release = film.getReleaseDate() == null ? titleView.getContext().getResources().getString(R.string.not_available) : film.getReleaseDate();
+        String release = film.getReleaseDate() == null ? notAvailable : film.getReleaseDate();
         releaseView.setText(release);
     }
 }

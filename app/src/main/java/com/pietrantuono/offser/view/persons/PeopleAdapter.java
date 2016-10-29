@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
  */
-public class PeopleAdapter extends RecyclerView.Adapter<PersonHolder> {
+class PeopleAdapter extends RecyclerView.Adapter<PersonHolder> {
     private final List<Person> persons;
 
     public PeopleAdapter(List<Person> persons) {
@@ -24,8 +24,7 @@ public class PeopleAdapter extends RecyclerView.Adapter<PersonHolder> {
     public PersonHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.persons_item, parent, false);
-        PersonHolder holder = new PersonHolder(view);
-        return holder;
+        return new PersonHolder(view);
     }
 
     @Override

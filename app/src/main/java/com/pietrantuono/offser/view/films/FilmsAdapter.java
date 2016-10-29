@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
  */
-public class FilmsAdapter extends RecyclerView.Adapter<FilmsHolder> {
+class FilmsAdapter extends RecyclerView.Adapter<FilmsHolder> {
     private final List<Film> films;
 
     public FilmsAdapter(List<Film> films) {
@@ -24,8 +24,7 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsHolder> {
     public FilmsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.films_item, parent, false);
-        FilmsHolder holder = new FilmsHolder(view);
-        return holder;
+        return new FilmsHolder(view);
     }
 
     @Override

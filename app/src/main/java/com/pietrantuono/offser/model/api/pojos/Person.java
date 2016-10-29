@@ -3,7 +3,7 @@ package com.pietrantuono.offser.model.api.pojos;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Generated;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -38,16 +38,16 @@ public class Person {
     private String homeworld;
     @SerializedName("films")
     @Expose
-    private List<String> films = new ArrayList<String>();
+    private List<String> films = new ArrayList<>();
     @SerializedName("species")
     @Expose
-    private List<String> species = new ArrayList<String>();
+    private List<String> species = new ArrayList<>();
     @SerializedName("vehicles")
     @Expose
-    private List<String> vehicles = new ArrayList<String>();
+    private List<String> vehicles = new ArrayList<>();
     @SerializedName("starships")
     @Expose
-    private List<String> starships = new ArrayList<String>();
+    private List<String> starships = new ArrayList<>();
     @SerializedName("created")
     @Expose
     private String created;

@@ -1,9 +1,6 @@
 package com.pietrantuono.offser.dagger.people;
 
-import com.pietrantuono.offser.dagger.films.FilmFragmentScope;
-import com.pietrantuono.offser.dagger.films.FilmsModule;
 import com.pietrantuono.offser.dagger.main.MainComponent;
-import com.pietrantuono.offser.view.films.FilmsFragment;
 import com.pietrantuono.offser.view.persons.PeopleFragment;
 
 import dagger.Component;

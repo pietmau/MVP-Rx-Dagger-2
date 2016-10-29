@@ -1,6 +1,5 @@
 package com.pietrantuono.offser.presenter.films;
 
-import com.pietrantuono.offser.view.films.FilmsFragment;
 import com.pietrantuono.offser.view.films.FilmsView;
 
 /**
