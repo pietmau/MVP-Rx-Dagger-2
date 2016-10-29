@@ -1,5 +1,6 @@
 package com.pietrantuono.offser.dagger.main;
 
+import com.pietrantuono.offser.StarWarsApplication;
 import com.pietrantuono.offser.model.StarWarsModel;
 import com.pietrantuono.offser.model.api.StarWarsApi;
 import com.pietrantuono.offser.view.films.FilmsFragment;
@@ -17,6 +18,8 @@ import dagger.Component;
 public interface MainComponent {
 
     void inject(MainActivity mainActivity);
+
+    void inject(StarWarsApplication application);
 
     StarWarsApi provideStarWarsApi();
 

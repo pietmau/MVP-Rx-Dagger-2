@@ -24,8 +24,6 @@ import rx.schedulers.Schedulers;
 public class StarWarsModelImpl implements StarWarsModel {  //TODO change name
     private static final String RETAINED_FRAGMENT_TAG = "retained_frag";
     private static final String TAG = StarWarsModelImpl.class.getSimpleName();
-    //private Observable<AllFilms> cachedFilmsObservable;
-    //private Observable<AllPeople> cachedPeopleObservable;
     private Subscription filmsSubscription;
     private Subscription peopleSubscription;
     private StarWarsApi starWarsApi;
@@ -37,8 +35,6 @@ public class StarWarsModelImpl implements StarWarsModel {  //TODO change name
         this.app = app;
         Log.d(TAG, "setApis");
 
-        app.cachedFilmsObservable = starWarsApi.getAllFilms().cache();
-        app.cachedPeopleObservable = starWarsApi.getAllPeople().cache();
     }
 
     public static StarWarsModelImpl getInstance(StarWarsApi starWarsApi, StarWarsApplication app) {
@@ -52,7 +48,7 @@ public class StarWarsModelImpl implements StarWarsModel {  //TODO change name
     @Override
     public void subscribeToFilms(Observer<? super AllFilms> observer) {
         Log.d(TAG, "subscribeToFilms");
-        filmsSubscription = app.cachedFilmsObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+        filmsSubscription = app.getCachedFilmsObservable().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
 
     @Override
@@ -74,6 +70,6 @@ public class StarWarsModelImpl implements StarWarsModel {  //TODO change name
     @Override
     public void subscribeToPeople(Observer<? super AllPeople> observer) {
         Log.d(TAG, "subscribeToPeople");
-        peopleSubscription = app.cachedPeopleObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+        peopleSubscription = app.getCachedPeopleObservable().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
 }

@@ -49,10 +49,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     private void initDependencyGraph() {
-        injector = DaggerMainComponent.builder()
-                .mainModule(new MainModule((StarWarsApplication)getApplication()))
-                .build();
-        injector.inject(MainActivity.this);
+        getInjector().inject(MainActivity.this);
     }
 
     @Override
@@ -75,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         ft.commit();
     }
 
-    public MainComponent getMainComponent() {
-        return injector;
+    public MainComponent getInjector() {
+        return ((StarWarsApplication)getApplication()).getInjector();
     }
 }

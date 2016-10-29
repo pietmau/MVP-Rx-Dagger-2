@@ -14,10 +14,8 @@ import com.pietrantuono.offser.R;
 import com.pietrantuono.offser.dagger.main.MainComponent;
 import com.pietrantuono.offser.dagger.people.DaggerPeopleComponent;
 import com.pietrantuono.offser.dagger.people.PeopleModule;
-import com.pietrantuono.offser.model.api.pojos.Film;
 import com.pietrantuono.offser.model.api.pojos.Person;
 import com.pietrantuono.offser.presenter.people.PeoplePresenter;
-import com.pietrantuono.offser.view.films.FilmsAdapter;
 import com.pietrantuono.offser.view.main.MainActivity;
 
 import java.util.List;
@@ -73,7 +71,7 @@ public class PeopleFragment extends Fragment implements PeopleView {
     }
 
     private MainComponent getMainComponenet() {
-        return ((MainActivity) getActivity()).getMainComponent();
+        return ((MainActivity) getActivity()).getInjector();
     }
 
     @Override

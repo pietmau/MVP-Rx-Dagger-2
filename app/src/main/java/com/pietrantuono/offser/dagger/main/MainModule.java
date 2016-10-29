@@ -20,8 +20,8 @@ import dagger.Provides;
 public class MainModule {
     private StarWarsApplication application;
 
-    public MainModule(StarWarsApplication activity) {
-        this.application = activity;
+    public MainModule(StarWarsApplication application) {
+        this.application = application;
     }
 
     @Provides
@@ -45,5 +45,4 @@ public class MainModule {
     StarWarsApplication provideStarWarsApplication() {
         return application;
     }
-
 }
