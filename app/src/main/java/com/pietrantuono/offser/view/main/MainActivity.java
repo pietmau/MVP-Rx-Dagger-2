@@ -1,5 +1,6 @@
 package com.pietrantuono.offser.view.main;
 
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -24,19 +25,29 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initViews(savedInstanceState);
+        initViews();
         fragmentManager = getSupportFragmentManager();
-        initDependancyGraph();
+        initDependencyGraph();
         mainViewpresenter.onCreate(MainActivity.this, savedInstanceState);
     }
 
-    private void initViews(Bundle savedInstanceState) {
+    private void initViews() {
         setContentView(R.layout.activity_main);
-        findViewById(R.id.gotofilms).setOnClickListener(view -> mainViewpresenter.onGoToFilmsClicked());
-        findViewById(R.id.gotopersons).setOnClickListener(view -> mainViewpresenter.onGoToPersonsClicked());
+        ((BottomNavigationView) findViewById(R.id.navigation))
+                .setOnNavigationItemSelectedListener(item -> {
+                    switch (item.getItemId()) {
+                        case R.id.people:
+                            mainViewpresenter.onGoToPersonsClicked();
+                            break;
+                        case R.id.films:
+                            mainViewpresenter.onGoToFilmsClicked();
+                            break;
+                    }
+                    return true;
+                });
     }
 
-    private void initDependancyGraph() {
+    private void initDependencyGraph() {
         injector = DaggerMainComponent.builder()
                 .mainModule(new MainModule(MainActivity.this))
                 .build();
