@@ -3,6 +3,7 @@ package com.pietrantuono.offser.model;
 import android.app.Activity;
 
 import com.pietrantuono.offser.model.api.StarWarsApi;
+import com.pietrantuono.offser.model.api.pojos.AllFilms;
 import com.pietrantuono.offser.model.api.pojos.Film;
 
 import java.util.List;
@@ -10,6 +11,8 @@ import java.util.List;
 import rx.Observable;
 import rx.Observer;
 import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
@@ -17,12 +20,33 @@ import rx.Subscription;
 public class StarWarsModelImpl implements StarWarsModel {  //TODO change name
     private final StarWarsApi starWarsApi;
     private static StarWarsModel instance;
-    private final Observable<List<Film>> cahcedFilmsObservable;
+    private final Observable<AllFilms> cahcedFilmsObservable;
     private Subscription filmsSubscription;
 
     public StarWarsModelImpl(StarWarsApi starWarsApi) {
         this.starWarsApi = starWarsApi;
         cahcedFilmsObservable = starWarsApi.getAllFilms().cache();
+        cahcedFilmsObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<AllFilms>() {
+            @Override
+            public void onCompleted() {
+                foo();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                foo();
+            }
+
+            @Override
+            public void onNext(AllFilms allFilms) {
+                foo();
+            }
+        });
+    }
+
+    private void foo() {
+
+
     }
 
     public static StarWarsModel getInstance(Activity activity, StarWarsApi starWarsApi) {
@@ -33,8 +57,8 @@ public class StarWarsModelImpl implements StarWarsModel {  //TODO change name
     }
 
     @Override
-    public void subscribeToFilms(Observer<? super List<Film>> observer) {
-        filmsSubscription = cahcedFilmsObservable.subscribe(observer);
+    public void subscribeToFilms(Observer<? super AllFilms> observer) {
+        filmsSubscription = cahcedFilmsObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
 
     @Override

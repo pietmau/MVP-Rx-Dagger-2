@@ -1,6 +1,9 @@
 package com.pietrantuono.offser.presenter.films;
 
+import android.util.Log;
+
 import com.pietrantuono.offser.model.StarWarsModel;
+import com.pietrantuono.offser.model.api.pojos.AllFilms;
 import com.pietrantuono.offser.model.api.pojos.Film;
 import com.pietrantuono.offser.view.films.FilmsView;
 
@@ -36,21 +39,26 @@ public class FilmPresenterImpl implements FilmsPresenter {
         starWarsModel.subscribeToFilms(simpleObserver);
     }
 
-    private class SimpleObserver implements Observer<List<Film>> {
+    private class SimpleObserver implements Observer<AllFilms> {
+        private final String TAG = SimpleObserver.class.getSimpleName();
 
         @Override
         public void onCompleted() {
-
+            Log.d(TAG, "onCompleted");
         }
 
         @Override
         public void onError(Throwable e) {
-
+            Log.d(TAG, "onError");
         }
 
         @Override
-        public void onNext(List<Film> films) {
-            view.showFilms(films);
+        public void onNext(AllFilms allFilms) {
+            Log.d(TAG, "onNext");
+            if (allFilms == null || allFilms.getFilms() == null) {
+                return;
+            }
+            view.showFilms(allFilms.getFilms());
         }
     }
 }
