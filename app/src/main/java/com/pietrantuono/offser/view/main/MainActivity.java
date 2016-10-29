@@ -1,5 +1,7 @@
 package com.pietrantuono.offser.view.main;
 
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -15,13 +17,13 @@ import javax.inject.Inject;
 public class MainActivity extends AppCompatActivity implements MainView {
     @Inject
     MainViewPresenter mainViewpresenter;
-    private MainComponent mainComponent;
-    private FilmsFragment ff;
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initViews(savedInstanceState);
+        fragmentManager = getSupportFragmentManager();
         initDependancyGraph();
         mainViewpresenter.onCreate(MainActivity.this, savedInstanceState);
     }
@@ -29,42 +31,33 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private void initViews(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         findViewById(R.id.gotofilms).setOnClickListener(view -> mainViewpresenter.onGoToFilmsClicked());
+        findViewById(R.id.gotopersons).setOnClickListener(view -> mainViewpresenter.onGoToPersonsClicked());
     }
 
     private void initDependancyGraph() {
-        mainComponent = DaggerMainComponent.builder()
+        MainComponent injector = DaggerMainComponent.builder()
                 .mainModule(new MainModule(MainActivity.this))
                 .build();
-        mainComponent.inject(MainActivity.this);
-        ff=mainComponent.provideFilmsFragment();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (!isChangingConfigurations()) {
-            mainViewpresenter.onDestroy();
-        }
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mainViewpresenter.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mainViewpresenter.onResume();
+        injector.inject(MainActivity.this);
     }
 
     @Override
     public void navigateToFilms() {
-
+        FilmsFragment filmsFragment = (FilmsFragment) fragmentManager.findFragmentByTag(FilmsFragment.FILMS_TAG);
+        if (filmsFragment == null) {
+            filmsFragment = FilmsFragment.newInstance();
+        }
+        FragmentTransaction ft = fragmentManager.beginTransaction().replace(R.id.container, filmsFragment, FilmsFragment.FILMS_TAG);
+        ft.commit();
     }
 
     @Override
     public void navigateToPersons() {
+        PersonsFragment personsFragment = (PersonsFragment) fragmentManager.findFragmentByTag(PersonsFragment.PERSONS_TAG);
+        if (personsFragment == null) {
+            personsFragment = PersonsFragment.newInstance();
+        }
+        FragmentTransaction ft = fragmentManager.beginTransaction().replace(R.id.container, personsFragment, PersonsFragment.PERSONS_TAG);
+        ft.commit();
     }
 }

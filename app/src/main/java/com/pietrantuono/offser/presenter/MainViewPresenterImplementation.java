@@ -12,36 +12,26 @@ import rx.Observable;
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
  */
 public class MainViewPresenterImplementation implements MainViewPresenter {
+    private MainView mainView;
+
     public MainViewPresenterImplementation(MainModel mainModel) {
     }
 
     @Override
     public void onCreate(MainView mainView, Bundle savedInstanceState) {
-
-    }
-
-    @Override
-    public void onDestroy() {
-
-    }
-
-    @Override
-    public void onPause() {
-
-    }
-
-    @Override
-    public void onResume() {
-
-    }
-
-    @Override
-    public void addGoToFilmsObservable(Observable<Void> goToFilms) {
-
+        this.mainView = mainView;
+        if (savedInstanceState == null) {
+            mainView.navigateToFilms();
+        }
     }
 
     @Override
     public void onGoToFilmsClicked() {
+        mainView.navigateToFilms();
+    }
 
+    @Override
+    public void onGoToPersonsClicked() {
+        mainView.navigateToPersons();
     }
 }
