@@ -6,4 +6,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="persons">Persons</string>
     <string name="not_available">Not available</string>
+    <string name="title">TITLE: &#160;</string>
+    <string name="episodeid">EPISODE ID: &#160;</string>
+    <string name="director">DIRECTOR: &#160;</string>
+    <string name="producer">PRODUCER: &#160;</string>
+    <string name="release">RELEASE DATE: &#160;</string>
+
 </resources>
