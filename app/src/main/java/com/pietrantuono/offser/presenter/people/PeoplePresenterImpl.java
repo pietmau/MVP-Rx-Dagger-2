@@ -41,6 +41,7 @@ public class PeoplePresenterImpl implements PeoplePresenter {
 
         @Override
         public void onCompleted() {
+            starWarsModel.unSubscribeToPeople();
         }
 
         @Override

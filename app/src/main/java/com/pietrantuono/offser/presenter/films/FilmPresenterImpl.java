@@ -44,6 +44,7 @@ public class FilmPresenterImpl implements FilmsPresenter {
 
         @Override
         public void onCompleted() {
+            starWarsModel.unSubscribeToFilms();
         }
 
         @Override
