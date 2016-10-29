@@ -4,7 +4,7 @@ import com.pietrantuono.offser.StarWarsApplication;
 import com.pietrantuono.offser.model.StarWarsModel;
 import com.pietrantuono.offser.model.StarWarsModelImpl;
 import com.pietrantuono.offser.presenter.main.MainViewPresenter;
-import com.pietrantuono.offser.presenter.main.MainViewPresenterImplementation;
+import com.pietrantuono.offser.presenter.main.StarWarsMainViewPresenter;
 import com.pietrantuono.offser.model.api.StarWarsApi;
 import com.pietrantuono.offser.model.api.StarWarsApiRetrofit;
 
@@ -26,7 +26,7 @@ public class MainModule {
 
     @Provides
     MainViewPresenter provideMainViewPresenter() {
-        return new MainViewPresenterImplementation();
+        return new StarWarsMainViewPresenter();
     }
 
     @Singleton

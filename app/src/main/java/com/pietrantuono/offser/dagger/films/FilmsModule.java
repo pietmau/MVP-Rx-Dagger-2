@@ -1,7 +1,7 @@
 package com.pietrantuono.offser.dagger.films;
 
 import com.pietrantuono.offser.model.StarWarsModel;
-import com.pietrantuono.offser.presenter.films.FilmPresenterImpl;
+import com.pietrantuono.offser.presenter.films.StarWarsFilmPresenter;
 import com.pietrantuono.offser.presenter.films.FilmsPresenter;
 
 import dagger.Module;
@@ -15,6 +15,6 @@ public class FilmsModule {
 
     @Provides
     FilmsPresenter provideFilmsPresenter(StarWarsModel model){
-        return new FilmPresenterImpl(model);
+        return new StarWarsFilmPresenter(model);
     }
 }

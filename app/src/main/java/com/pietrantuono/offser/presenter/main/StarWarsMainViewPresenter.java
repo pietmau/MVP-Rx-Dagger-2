@@ -10,7 +10,7 @@ import com.pietrantuono.offser.view.main.MainView;
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
  */
-public class MainViewPresenterImplementation implements MainViewPresenter {
+public class StarWarsMainViewPresenter implements MainViewPresenter {
     private MainView mainView;
 
     @Override
