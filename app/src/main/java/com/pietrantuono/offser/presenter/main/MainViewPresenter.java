@@ -1,4 +1,4 @@
-package com.pietrantuono.offser.presenter;
+package com.pietrantuono.offser.presenter.main;
 
 import android.os.Bundle;
 

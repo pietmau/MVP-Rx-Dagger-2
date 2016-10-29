@@ -7,8 +7,7 @@ import java.util.List;
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
  */
-public interface FilmsView {
-    void showFilms(List<Film> films);
+public interface FilmsView extends StarWarsListView{
 
-    void showError(String message);
+    void showFilms(List<Film> films);
 }

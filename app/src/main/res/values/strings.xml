@@ -1,15 +1,21 @@
 <resources>
-    <string name="app_name">OffSer</string>
-    <string name="films">Films</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Star Wars Demo</string>
+    <string name="Films">Films</string>
     <string name="persons">Persons</string>
+
     <string name="not_available">Not available</string>
     <string name="title">TITLE: &#160;</string>
     <string name="episodeid">EPISODE ID: &#160;</string>
     <string name="director">DIRECTOR: &#160;</string>
     <string name="producer">PRODUCER: &#160;</string>
     <string name="release">RELEASE DATE: &#160;</string>
+    <string name="name">NAME: &#160;</string>
+    <string name="birth">BIRTH YEAR: &#160;</string>
+    <string name="eyes">EYES COLOR: &#160;</string>
+    <string name="gender">GENDER: &#160;</string>
+    <string name="hair">HAIR COLOR: &#160;</string>
+    <string name="height">HEIGHT: &#160;</string>
+    <string name="mass">MASS: &#160;</string>
+    <string name="skin">SKIN COLOUR: &#160;</string>
 
 </resources>

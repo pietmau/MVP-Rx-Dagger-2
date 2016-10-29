@@ -1,12 +1,11 @@
 package com.pietrantuono.offser.dagger.main;
 
-import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 
 import com.pietrantuono.offser.model.StarWarsModel;
 import com.pietrantuono.offser.model.StarWarsModelImpl;
-import com.pietrantuono.offser.presenter.MainViewPresenter;
-import com.pietrantuono.offser.presenter.MainViewPresenterImplementation;
+import com.pietrantuono.offser.presenter.main.MainViewPresenter;
+import com.pietrantuono.offser.presenter.main.MainViewPresenterImplementation;
 import com.pietrantuono.offser.model.api.StarWarsApi;
 import com.pietrantuono.offser.model.api.StarWarsApiRetrofit;
 import com.pietrantuono.offser.view.films.FilmsFragment;

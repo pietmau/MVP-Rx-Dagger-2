@@ -1,8 +1,9 @@
-package com.pietrantuono.offser.presenter;
+package com.pietrantuono.offser.presenter.main;
 
 import android.os.Bundle;
 
 import com.pietrantuono.offser.model.StarWarsModel;
+import com.pietrantuono.offser.presenter.main.MainViewPresenter;
 import com.pietrantuono.offser.view.main.MainView;
 
 /**

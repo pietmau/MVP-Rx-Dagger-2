@@ -8,9 +8,10 @@ import android.os.Bundle;
 import com.pietrantuono.offser.dagger.main.DaggerMainComponent;
 import com.pietrantuono.offser.dagger.main.MainComponent;
 import com.pietrantuono.offser.dagger.main.MainModule;
-import com.pietrantuono.offser.presenter.MainViewPresenter;
+import com.pietrantuono.offser.presenter.main.MainViewPresenter;
 import com.pietrantuono.offser.R;
 import com.pietrantuono.offser.view.films.FilmsFragment;
+import com.pietrantuono.offser.view.persons.PeopleFragment;
 
 import javax.inject.Inject;
 
@@ -54,11 +55,11 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void navigateToPersons() {
-        PersonsFragment personsFragment = (PersonsFragment) fragmentManager.findFragmentByTag(PersonsFragment.PERSONS_TAG);
+        PeopleFragment personsFragment = (PeopleFragment) fragmentManager.findFragmentByTag(PeopleFragment.PEOPLE_TAG);
         if (personsFragment == null) {
-            personsFragment = PersonsFragment.newInstance();
+            personsFragment = PeopleFragment.newInstance();
         }
-        FragmentTransaction ft = fragmentManager.beginTransaction().replace(R.id.container, personsFragment, PersonsFragment.PERSONS_TAG);
+        FragmentTransaction ft = fragmentManager.beginTransaction().replace(R.id.container, personsFragment, PeopleFragment.PEOPLE_TAG);
         ft.commit();
     }
 
