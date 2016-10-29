@@ -1,4 +1,4 @@
-package com.pietrantuono.offser;
+package com.pietrantuono.offser.tests;
 
 import android.os.Bundle;
 
@@ -30,7 +30,7 @@ public class StarWarsMainViewPresenterTests {
     }
 
     @Test
-    public void givenPresenter_whenOnCreteAndNoBundle_thenGoToFilms() throws Exception {
+    public void givenPresenter_whenOnCreteAndNoBundle_thenGoToFilms() {
         // WHEN
         starWarsMainViewPresenter.onCreate(view, null);
         // THEN
@@ -38,7 +38,7 @@ public class StarWarsMainViewPresenterTests {
     }
 
     @Test
-    public void givenPresenter_whenOnCreteAndBundle_thenNotGoToFilms() throws Exception {
+    public void givenPresenter_whenOnCreteAndBundle_thenNotGoToFilms() {
         // WHEN
         starWarsMainViewPresenter.onCreate(view, bundle);
         // THEN
@@ -46,7 +46,7 @@ public class StarWarsMainViewPresenterTests {
     }
 
     @Test
-    public void givenPresenter_whenOnGoToFilmsClicked_thenGoToFilms() throws Exception {
+    public void givenPresenter_whenOnGoToFilmsClicked_thenGoToFilms() {
         // GIVEN
         starWarsMainViewPresenter.onCreate(view, bundle);
         // WHEN
@@ -56,7 +56,7 @@ public class StarWarsMainViewPresenterTests {
     }
 
     @Test
-    public void givenPresenter_whenOnGoToPersonsClicked_thenGoToPersons() throws Exception {
+    public void givenPresenter_whenOnGoToPersonsClicked_thenGoToPersons() {
         // GIVEN
         starWarsMainViewPresenter.onCreate(view, bundle);
         // WHEN

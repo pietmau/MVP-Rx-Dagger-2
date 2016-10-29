@@ -9,12 +9,12 @@ import rx.Observer;
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
  */
-public class PeoplePresenterImpl implements PeoplePresenter {
+public class StarWarsPeoplePresenter implements PeoplePresenter {
     private final StarWarsModel starWarsModel;
     private PeopleView view;
     private final SimpleObserver simpleObserver;
 
-    public PeoplePresenterImpl(StarWarsModel starWarsModel) {
+    public StarWarsPeoplePresenter(StarWarsModel starWarsModel) {
         this.starWarsModel = starWarsModel;
         simpleObserver = new SimpleObserver();
     }

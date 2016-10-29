@@ -2,7 +2,7 @@ package com.pietrantuono.offser.dagger.people;
 
 import com.pietrantuono.offser.model.StarWarsModel;
 import com.pietrantuono.offser.presenter.people.PeoplePresenter;
-import com.pietrantuono.offser.presenter.people.PeoplePresenterImpl;
+import com.pietrantuono.offser.presenter.people.StarWarsPeoplePresenter;
 
 import dagger.Module;
 import dagger.Provides;
@@ -15,6 +15,6 @@ public class PeopleModule {
 
     @Provides
     PeoplePresenter providePeoplePresenter(StarWarsModel model){
-        return new PeoplePresenterImpl(model);
+        return new StarWarsPeoplePresenter(model);
     }
 }
