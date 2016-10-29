@@ -1,7 +1,6 @@
 package com.pietrantuono.offser.dagger.main;
 
-import android.support.v7.app.AppCompatActivity;
-
+import com.pietrantuono.offser.StarWarsApplication;
 import com.pietrantuono.offser.model.StarWarsModel;
 import com.pietrantuono.offser.model.StarWarsModelImpl;
 import com.pietrantuono.offser.presenter.main.MainViewPresenter;
@@ -19,10 +18,10 @@ import dagger.Provides;
  */
 @Module
 public class MainModule {
-    private AppCompatActivity activity;
+    private StarWarsApplication application;
 
-    public MainModule(AppCompatActivity activity) {
-        this.activity = activity;
+    public MainModule(StarWarsApplication activity) {
+        this.application = activity;
     }
 
     @Provides
@@ -32,14 +31,19 @@ public class MainModule {
 
     @Singleton
     @Provides
-    StarWarsModel provideMainModel(StarWarsApi starWarsApi) {
-        return StarWarsModelImpl.getInstance(activity, starWarsApi);
+    StarWarsModel provideMainModel(StarWarsApi starWarsApi, StarWarsApplication app) {
+        return  StarWarsModelImpl.getInstance(starWarsApi, app);
     }
 
     @Provides
     @Singleton
     StarWarsApi provideStarWarsApi() {
         return new StarWarsApiRetrofit();
+    }
+
+    @Provides
+    StarWarsApplication provideStarWarsApplication() {
+        return application;
     }
 
 }

@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.pietrantuono.offser.StarWarsApplication;
 import com.pietrantuono.offser.dagger.main.DaggerMainComponent;
 import com.pietrantuono.offser.dagger.main.MainComponent;
 import com.pietrantuono.offser.dagger.main.MainModule;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     private void initDependencyGraph() {
         injector = DaggerMainComponent.builder()
-                .mainModule(new MainModule(MainActivity.this))
+                .mainModule(new MainModule((StarWarsApplication)getApplication()))
                 .build();
         injector.inject(MainActivity.this);
     }

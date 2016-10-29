@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.pietrantuono.offser.StarWarsApplication;
 import com.pietrantuono.offser.model.api.StarWarsApi;
 import com.pietrantuono.offser.model.api.pojos.AllFilms;
 import com.pietrantuono.offser.model.api.pojos.AllPeople;
@@ -20,47 +21,43 @@ import rx.schedulers.Schedulers;
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
  */
-public class StarWarsModelImpl extends Fragment implements StarWarsModel {  //TODO change name
+public class StarWarsModelImpl implements StarWarsModel {  //TODO change name
     private static final String RETAINED_FRAGMENT_TAG = "retained_frag";
     private static final String TAG = StarWarsModelImpl.class.getSimpleName();
-    private Observable<AllFilms> cachedFilmsObservable;
-    private Observable<AllPeople> cachedPeopleObservable;
+    //private Observable<AllFilms> cachedFilmsObservable;
+    //private Observable<AllPeople> cachedPeopleObservable;
     private Subscription filmsSubscription;
     private Subscription peopleSubscription;
+    private StarWarsApi starWarsApi;
+    private StarWarsApplication app;
+    private static StarWarsModelImpl instance;
 
-    public static StarWarsModel getInstance(AppCompatActivity activity, StarWarsApi starWarsApi) {
-        FragmentManager manager = activity.getSupportFragmentManager();
-        StarWarsModelImpl starWarsModel = (StarWarsModelImpl) manager.findFragmentByTag(RETAINED_FRAGMENT_TAG);
-        if (starWarsModel == null) {
-            Log.d(TAG,"StarWarsModel is NULL!!!!!!!!!!!");
-            starWarsModel = new StarWarsModelImpl();
-            starWarsModel.setApis(starWarsApi);
-            manager.beginTransaction().add(starWarsModel, RETAINED_FRAGMENT_TAG).commit();
+    public StarWarsModelImpl(StarWarsApi starWarsApi, StarWarsApplication app) {
+        this.starWarsApi = starWarsApi;
+        this.app = app;
+        Log.d(TAG, "setApis");
+
+        app.cachedFilmsObservable = starWarsApi.getAllFilms().cache();
+        app.cachedPeopleObservable = starWarsApi.getAllPeople().cache();
+    }
+
+    public static StarWarsModelImpl getInstance(StarWarsApi starWarsApi, StarWarsApplication app) {
+        if (instance == null) {
+            instance = new StarWarsModelImpl(starWarsApi, app);
         }
-        return starWarsModel;
+        return instance;
     }
 
-    private void setApis(StarWarsApi starWarsApi) {
-        Log.d(TAG,"setApis");
-        cachedFilmsObservable = starWarsApi.getAllFilms().cache();
-        cachedPeopleObservable = starWarsApi.getAllPeople().cache();
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setRetainInstance(true);
-    }
 
     @Override
     public void subscribeToFilms(Observer<? super AllFilms> observer) {
-        Log.d(TAG,"subscribeToFilms");
-        filmsSubscription = cachedFilmsObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+        Log.d(TAG, "subscribeToFilms");
+        filmsSubscription = app.cachedFilmsObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
 
     @Override
     public void unSubscribeToFilms() {
-        Log.d(TAG,"unSubscribeToFilms");
+        Log.d(TAG, "unSubscribeToFilms");
         if (filmsSubscription != null) {//TODo we need this?
             filmsSubscription.unsubscribe();
         }
@@ -68,7 +65,7 @@ public class StarWarsModelImpl extends Fragment implements StarWarsModel {  //TO
 
     @Override
     public void unSubscribeToPeople() {
-        Log.d(TAG,"unSubscribeToPeople");
+        Log.d(TAG, "unSubscribeToPeople");
         if (peopleSubscription != null) {//TODo we need this?
             peopleSubscription.unsubscribe();
         }
@@ -76,7 +73,7 @@ public class StarWarsModelImpl extends Fragment implements StarWarsModel {  //TO
 
     @Override
     public void subscribeToPeople(Observer<? super AllPeople> observer) {
-        Log.d(TAG,"subscribeToPeople");
-        peopleSubscription = cachedPeopleObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+        Log.d(TAG, "subscribeToPeople");
+        peopleSubscription = app.cachedPeopleObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
 }
