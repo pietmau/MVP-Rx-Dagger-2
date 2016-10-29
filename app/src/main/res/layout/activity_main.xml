@@ -27,7 +27,7 @@
             android:id="@+id/gotofilms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/persons" />
+            android:text="@string/films" />
 
         <Button
             android:id="@+id/gotopersons"

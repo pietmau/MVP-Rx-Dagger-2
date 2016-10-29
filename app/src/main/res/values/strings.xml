@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Star Wars Demo</string>
-    <string name="Films">Films</string>
+    <string name="films">Films</string>
     <string name="persons">Persons</string>
 
     <string name="not_available">Not available</string>

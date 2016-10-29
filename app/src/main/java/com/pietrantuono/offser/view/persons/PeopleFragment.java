@@ -78,7 +78,7 @@ public class PeopleFragment extends Fragment implements PeopleView {
 
     @Override
     public void showPersons(List<Person> persons) {
-
+        recyclerView.setAdapter(new PeopleAdapter(persons));
     }
 
     @Override
