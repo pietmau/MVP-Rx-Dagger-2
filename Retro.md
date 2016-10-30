@@ -13,12 +13,12 @@ More tests need to be written.
 
 ###Architectural approach
 A simple implementation of the MPV pattern is applied. 
-The Presenters subscribe to the Model via Observers (Rx) to receive the data.They subscribe in `onResume()` and unscubscribe in `onPause()` to avoid leaks.The requests to the StarWars api are cached using the `Observable.cache()` operator.
-
+The Presenters subscribe to the Model via Observers (RxAndroid) to receive the data.They subscribe in `onResume()` and unscubscribe in `onPause()` to avoid leaks.The requests to the StarWars api are cached using the `Observable.cache()` operator.
+The requests are retried in case InterruptedIOException.
 We need to store the cached requests themselves so that they survive config changes, otherwise there would be no benefit in caching. 
 I decided to store them in the Application class. I am aware this approach can be discussed, other solutions are possible: 
 use a Service (started service to outlive the Activity config changes, bound to allow communication), use a retained Fragment, store 
-them in a Singleton. 
+them in a Singleton.
 
 Dependencies are injected using Dagger 2.
 
