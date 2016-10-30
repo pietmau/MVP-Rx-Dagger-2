@@ -40,7 +40,7 @@ public class PeopleFragment extends Fragment implements PeopleView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_films, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.films_recycler);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return view;
     }
