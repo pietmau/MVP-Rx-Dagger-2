@@ -32,7 +32,6 @@ public class StarWarsModelRetrofit implements StarWarsModel {  //TODO change nam
         return instance;
     }
 
-
     @Override
     public void subscribeToFilms(Observer<? super AllFilms> observer) {
         filmsSubscription = app.getCachedFilmsObservable().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
@@ -40,16 +39,13 @@ public class StarWarsModelRetrofit implements StarWarsModel {  //TODO change nam
 
     @Override
     public void unSubscribeToFilms() {
-        if (filmsSubscription != null) {//TODo we need this?
             filmsSubscription.unsubscribe();
-        }
+
     }
 
     @Override
     public void unSubscribeToPeople() {
-        if (peopleSubscription != null) {//TODo we need this?
             peopleSubscription.unsubscribe();
-        }
     }
 
     @Override
