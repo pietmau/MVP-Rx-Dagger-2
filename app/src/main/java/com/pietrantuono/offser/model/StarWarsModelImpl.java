@@ -27,7 +27,7 @@ public class StarWarsModelImpl implements StarWarsModel {  //TODO change name
         Log.d(TAG, "setApis");
     }
 
-    public static StarWarsModelImpl getInstance(StarWarsApi starWarsApi, StarWarsApplication app) {
+    public static StarWarsModelImpl getInstance(StarWarsApplication app) {
         if (instance == null) {
             instance = new StarWarsModelImpl(app);
         }

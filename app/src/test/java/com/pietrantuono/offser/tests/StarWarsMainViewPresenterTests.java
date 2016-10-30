@@ -9,16 +9,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class StarWarsMainViewPresenterTests {
-    StarWarsMainViewPresenter starWarsMainViewPresenter;
+    private StarWarsMainViewPresenter starWarsMainViewPresenter;
     private Bundle bundle;
     @Mock
     MainView view;

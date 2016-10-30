@@ -1,17 +1,11 @@
 package com.pietrantuono.offser;
 
-import android.app.Application;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.pietrantuono.offser.dagger.main.StarWarsApiMock;
 import com.pietrantuono.offser.view.main.MainActivity;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;

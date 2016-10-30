@@ -34,12 +34,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private void initViews() {
         setContentView(R.layout.activity_main);
         ((BottomNavigationView) findViewById(R.id.navigation))
-                .setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        return mainViewpresenter.onNavigationItemSelected(item);
-                    }
-                });
+                .setOnNavigationItemSelectedListener(item -> mainViewpresenter.onNavigationItemSelected(item));
     }
 
     private void initDependencyGraph() {

@@ -4,7 +4,6 @@ import com.pietrantuono.offser.StarWarsApplication;
 import com.pietrantuono.offser.model.StarWarsModel;
 import com.pietrantuono.offser.model.StarWarsModelImpl;
 import com.pietrantuono.offser.model.api.StarWarsApi;
-import com.pietrantuono.offser.model.api.StarWarsApiRetrofit;
 import com.pietrantuono.offser.presenter.main.MainViewPresenter;
 import com.pietrantuono.offser.presenter.main.StarWarsMainViewPresenter;
 
@@ -32,7 +31,7 @@ public class MainModule {
     @Singleton
     @Provides
     StarWarsModel provideMainModel(StarWarsApi starWarsApi, StarWarsApplication app) {
-        return  StarWarsModelImpl.getInstance(starWarsApi, app);
+        return  StarWarsModelImpl.getInstance(app);
     }
 
     @Provides
