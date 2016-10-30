@@ -33,6 +33,12 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
     }
+    productFlavors {
+        mock {
+            applicationIdSuffix = ".mock"
+        }
+        prod
+    }
 }
 
 dependencies {
