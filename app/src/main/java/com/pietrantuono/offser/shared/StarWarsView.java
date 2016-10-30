@@ -1,7 +1,7 @@
-package com.pietrantuono.offser.films.view;
+package com.pietrantuono.offser.shared;
 
 /**
- * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
+ * A common interface for the Views
  */
 public interface StarWarsView {
 

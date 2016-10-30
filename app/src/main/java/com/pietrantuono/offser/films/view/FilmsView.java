@@ -1,6 +1,9 @@
 package com.pietrantuono.offser.films.view;
 
+import android.support.annotation.NonNull;
+
 import com.pietrantuono.offser.model.api.pojos.Film;
+import com.pietrantuono.offser.shared.StarWarsView;
 
 import java.util.List;
 
@@ -9,5 +12,5 @@ import java.util.List;
  */
 public interface FilmsView extends StarWarsView {
 
-    void showFilms(List<Film> films);
+    void showFilms(@NonNull List<Film> films);
 }

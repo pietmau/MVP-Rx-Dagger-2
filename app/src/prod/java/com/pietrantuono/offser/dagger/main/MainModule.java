@@ -31,7 +31,7 @@ public class MainModule {
 
     @Singleton
     @Provides
-    StarWarsModel provideMainModel(StarWarsApi starWarsApi, StarWarsApplication app) {
+    StarWarsModel provideMainModel(StarWarsApplication app) {
         return new StarWarsModelRetrofit(app);
     }
 

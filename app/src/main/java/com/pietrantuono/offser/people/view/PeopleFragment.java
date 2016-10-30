@@ -49,7 +49,6 @@ public class PeopleFragment extends Fragment implements PeopleView {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        super.onCreate(savedInstanceState);
         DaggerPeopleComponent.builder()
                 .mainComponent(getMainComponent())
                 .peopleModule(new PeopleModule())

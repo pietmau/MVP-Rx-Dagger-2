@@ -2,6 +2,7 @@ package com.pietrantuono.offser.films.view;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -49,7 +50,6 @@ public class FilmsFragment extends Fragment implements FilmsView {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        super.onCreate(savedInstanceState);
         DaggerFilmComponent.builder()
                 .mainComponent(getMainComponent())
                 .filmsModule(new FilmsModule())
@@ -75,7 +75,7 @@ public class FilmsFragment extends Fragment implements FilmsView {
     }
 
     @Override
-    public void showFilms(List<Film> films) {
+    public void showFilms(@NonNull List<Film> films) {
         recyclerView.setAdapter(new FilmsAdapter(films));
     }
 
