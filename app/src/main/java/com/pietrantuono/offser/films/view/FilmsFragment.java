@@ -10,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.ViewAnimator;
 
 import com.pietrantuono.offser.R;
 import com.pietrantuono.offser.dagger.films.DaggerFilmComponent;
@@ -29,6 +31,8 @@ public class FilmsFragment extends Fragment implements FilmsView {
     @Inject
     FilmsPresenter filmsPresenter;
     private RecyclerView recyclerView;
+    private ViewAnimator switcher;
+    private TextView errorText;
 
     public FilmsFragment() {
     }
@@ -40,9 +44,11 @@ public class FilmsFragment extends Fragment implements FilmsView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_films, container, false);
+        View view = inflater.inflate(R.layout.fragment, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        switcher = (ViewAnimator) view.findViewById(R.id.switcher);
+        errorText = (TextView) view.findViewById(R.id.error);
         return view;
     }
 
@@ -76,21 +82,20 @@ public class FilmsFragment extends Fragment implements FilmsView {
 
     @Override
     public void showFilms(@NonNull List<Film> films) {
+        switcher.setDisplayedChild(1);
         recyclerView.setAdapter(new FilmsAdapter(films));
     }
 
     @Override
     public void showError(@Nullable String message) {
-
+        switcher.setDisplayedChild(2);
+        if (message != null) {
+            errorText.setText(message);
+        }
     }
 
     @Override
     public void showLoading() {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
+        switcher.setDisplayedChild(1);
     }
 }

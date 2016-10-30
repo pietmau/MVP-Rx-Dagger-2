@@ -11,5 +11,4 @@ public interface StarWarsView {
 
     void showLoading();
 
-    void hideLoading();
 }
