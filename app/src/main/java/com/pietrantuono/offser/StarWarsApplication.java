@@ -10,6 +10,8 @@ import com.pietrantuono.offser.model.api.StarWarsApi;
 import com.pietrantuono.offser.model.api.pojos.AllFilms;
 import com.pietrantuono.offser.model.api.pojos.AllPeople;
 
+import java.io.InterruptedIOException;
+
 import javax.inject.Inject;
 
 import rx.Observable;
@@ -32,8 +34,22 @@ public class StarWarsApplication extends Application {
                 .mainModule(new MainModule(StarWarsApplication.this))
                 .build();
         injector.inject(StarWarsApplication.this);
-        cachedFilmsObservable = starWarsApi.getAllFilms().cache();
-        cachedPeopleObservable = starWarsApi.getAllPeople().cache();
+        cachedFilmsObservable = starWarsApi.getAllFilms().retryWhen(errors -> errors.flatMap(error -> {
+                    // We retry only in this case
+                    if (error instanceof InterruptedIOException) {
+                        return Observable.just(null);
+                    }
+                    return Observable.error(error);
+                })
+        ).cache();
+        cachedPeopleObservable = starWarsApi.getAllPeople().retryWhen(errors -> errors.flatMap(error -> {
+                    // We retry only in this case
+                    if (error instanceof InterruptedIOException) {
+                        return Observable.just(null);
+                    }
+                    return Observable.error(error);
+                })
+        ).cache();
     }
 
     public MainComponent getInjector() {
