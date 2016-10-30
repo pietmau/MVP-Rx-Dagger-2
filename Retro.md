@@ -34,7 +34,7 @@ The first question would be: which are the key info to show in the list, because
 about what to show (I do not show the film url, the film crawl, the person url, the starship url, etc.).
 
 ###What to do next
-- Implement retry in case of error. 
+- Implement retry in case of network error. 
 - The cards in the lists need some design.
 
 

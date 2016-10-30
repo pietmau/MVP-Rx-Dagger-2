@@ -34,20 +34,20 @@ public class StarWarsApplication extends Application {
                 .mainModule(new MainModule(StarWarsApplication.this))
                 .build();
         injector.inject(StarWarsApplication.this);
-        cachedFilmsObservable = starWarsApi.getAllFilms().retryWhen(errors -> errors.flatMap(error -> {
+        cachedFilmsObservable = starWarsApi.getAllFilms().retryWhen(exceptions -> exceptions.flatMap(exception -> {
                     // We retry only in this case
-                    if (error instanceof InterruptedIOException) {
+                    if (exception instanceof InterruptedIOException) {
                         return Observable.just(null);
                     }
-                    return Observable.error(error);
+                    return Observable.error(exception);
                 })
         ).cache();
-        cachedPeopleObservable = starWarsApi.getAllPeople().retryWhen(errors -> errors.flatMap(error -> {
+        cachedPeopleObservable = starWarsApi.getAllPeople().retryWhen(exceptions -> exceptions.flatMap(exception -> {
                     // We retry only in this case
-                    if (error instanceof InterruptedIOException) {
+                    if (exception instanceof InterruptedIOException) {
                         return Observable.just(null);
                     }
-                    return Observable.error(error);
+                    return Observable.error(exception);
                 })
         ).cache();
     }
