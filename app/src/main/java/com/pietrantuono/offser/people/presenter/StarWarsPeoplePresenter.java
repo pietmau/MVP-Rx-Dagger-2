@@ -32,7 +32,6 @@ public class StarWarsPeoplePresenter implements PeoplePresenter {
         starWarsModel.subscribeToPeople(new Observer<AllPeople>() {
             @Override
             public void onCompleted() {
-                starWarsModel.unSubscribeToPeople();
             }
 
             @Override

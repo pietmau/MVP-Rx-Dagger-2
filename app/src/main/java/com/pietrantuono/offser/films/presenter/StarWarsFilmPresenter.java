@@ -32,7 +32,6 @@ public class StarWarsFilmPresenter implements FilmsPresenter {
         starWarsModel.subscribeToFilms(new Observer<AllFilms>() {
             @Override
             public void onCompleted() {
-                starWarsModel.unSubscribeToFilms();
             }
 
             @Override

@@ -15,5 +15,5 @@ The Presenters subscribe to the Model via Observers (Rx) to receive the data.
 They subscribe in onResume() and unscubscribe in onPause() to avoid leaks.
 The requests to the StarWars api are cached using the Observable.cache() operator.
 
-But we need to store the cached requests themselves so that they survive config changes:
-I decided to store them in the application class
+But we need to store the cached requests themselves so that they survive config changes, otherwise there would be no benefit in caching.
+I decided to store them in the application class. 
