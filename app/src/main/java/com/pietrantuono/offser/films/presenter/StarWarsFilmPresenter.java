@@ -12,11 +12,9 @@ import rx.Observer;
 public class StarWarsFilmPresenter implements FilmsPresenter {
     private final StarWarsModel starWarsModel;
     private FilmsView view;
-    private final SimpleObserver simpleObserver;
 
     public StarWarsFilmPresenter(StarWarsModel starWarsModel) {
         this.starWarsModel = starWarsModel;
-        simpleObserver = new SimpleObserver();
     }
 
     @Override
@@ -31,28 +29,26 @@ public class StarWarsFilmPresenter implements FilmsPresenter {
 
     @Override
     public void onResume() {
-        starWarsModel.subscribeToFilms(simpleObserver);
-    }
-
-    private class SimpleObserver implements Observer<AllFilms> {
-
-        @Override
-        public void onCompleted() {
-            starWarsModel.unSubscribeToFilms();
-        }
-
-        @Override
-        public void onError(Throwable e) {
-            view.showError(e.getMessage());
-        }
-
-        @Override
-        public void onNext(AllFilms allFilms) {
-            if (allFilms == null || allFilms.getFilms() == null) {
-                return;
+        starWarsModel.subscribeToFilms(new Observer<AllFilms>() {
+            @Override
+            public void onCompleted() {
+                starWarsModel.unSubscribeToFilms();
             }
-            view.showFilms(allFilms.getFilms());
-        }
+
+            @Override
+            public void onError(Throwable e) {
+                view.showError(e.getMessage());
+            }
+
+            @Override
+            public void onNext(AllFilms allFilms) {
+                if (allFilms == null || allFilms.getFilms() == null) {
+                    return;
+                }
+                view.showFilms(allFilms.getFilms());
+            }
+        });
     }
+
 }
 
