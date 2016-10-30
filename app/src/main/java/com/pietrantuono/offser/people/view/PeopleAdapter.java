@@ -1,4 +1,4 @@
-package com.pietrantuono.offser.view.persons;
+package com.pietrantuono.offser.people.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

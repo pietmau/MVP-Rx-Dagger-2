@@ -1,8 +1,8 @@
-package com.pietrantuono.offser.presenter.people;
+package com.pietrantuono.offser.people.presenter;
 
 import com.pietrantuono.offser.model.StarWarsModel;
 import com.pietrantuono.offser.model.api.pojos.AllPeople;
-import com.pietrantuono.offser.view.persons.PeopleView;
+import com.pietrantuono.offser.people.view.PeopleView;
 
 import rx.Observer;
 

@@ -1,7 +1,7 @@
 package com.pietrantuono.offser.dagger.people;
 
 import com.pietrantuono.offser.dagger.main.MainComponent;
-import com.pietrantuono.offser.view.persons.PeopleFragment;
+import com.pietrantuono.offser.people.view.PeopleFragment;
 
 import dagger.Component;
 

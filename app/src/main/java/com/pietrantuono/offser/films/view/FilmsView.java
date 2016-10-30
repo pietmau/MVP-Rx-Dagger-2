@@ -1,4 +1,4 @@
-package com.pietrantuono.offser.view.films;
+package com.pietrantuono.offser.films.view;
 
 import com.pietrantuono.offser.model.api.pojos.Film;
 

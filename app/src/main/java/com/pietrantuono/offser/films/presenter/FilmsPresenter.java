@@ -1,6 +1,6 @@
-package com.pietrantuono.offser.presenter.films;
+package com.pietrantuono.offser.films.presenter;
 
-import com.pietrantuono.offser.view.films.FilmsView;
+import com.pietrantuono.offser.films.view.FilmsView;
 
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.

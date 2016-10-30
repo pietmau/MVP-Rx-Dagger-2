@@ -1,4 +1,4 @@
-package com.pietrantuono.offser.view.films;
+package com.pietrantuono.offser.films.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

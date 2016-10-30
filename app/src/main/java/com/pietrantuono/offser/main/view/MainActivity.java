@@ -1,19 +1,17 @@
-package com.pietrantuono.offser.view.main;
+package com.pietrantuono.offser.main.view;
 
-import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MenuItem;
 
 import com.pietrantuono.offser.StarWarsApplication;
 import com.pietrantuono.offser.dagger.main.MainComponent;
-import com.pietrantuono.offser.presenter.main.MainViewPresenter;
+import com.pietrantuono.offser.main.presenter.MainViewPresenter;
 import com.pietrantuono.offser.R;
-import com.pietrantuono.offser.view.films.FilmsFragment;
-import com.pietrantuono.offser.view.persons.PeopleFragment;
+import com.pietrantuono.offser.films.view.FilmsFragment;
+import com.pietrantuono.offser.people.view.PeopleFragment;
 
 import javax.inject.Inject;
 

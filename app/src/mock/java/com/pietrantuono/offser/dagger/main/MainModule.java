@@ -2,10 +2,10 @@ package com.pietrantuono.offser.dagger.main;
 
 import com.pietrantuono.offser.StarWarsApplication;
 import com.pietrantuono.offser.model.StarWarsModel;
-import com.pietrantuono.offser.model.StarWarsModelImpl;
+import com.pietrantuono.offser.model.StarWarsModelRetrofit;
 import com.pietrantuono.offser.model.api.StarWarsApi;
-import com.pietrantuono.offser.presenter.main.MainViewPresenter;
-import com.pietrantuono.offser.presenter.main.StarWarsMainViewPresenter;
+import com.pietrantuono.offser.main.presenter.MainViewPresenter;
+import com.pietrantuono.offser.main.presenter.StarWarsMainViewPresenter;
 
 import javax.inject.Singleton;
 
@@ -31,7 +31,7 @@ public class MainModule {
     @Singleton
     @Provides
     StarWarsModel provideMainModel(StarWarsApi starWarsApi, StarWarsApplication app) {
-        return  StarWarsModelImpl.getInstance(app);
+        return  StarWarsModelRetrofit.getInstance(app);
     }
 
     @Provides

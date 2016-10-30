@@ -3,8 +3,8 @@ package com.pietrantuono.offser.tests;
 import com.pietrantuono.offser.model.StarWarsModel;
 import com.pietrantuono.offser.model.api.pojos.AllFilms;
 import com.pietrantuono.offser.model.api.pojos.Film;
-import com.pietrantuono.offser.presenter.films.StarWarsFilmPresenter;
-import com.pietrantuono.offser.view.films.FilmsView;
+import com.pietrantuono.offser.films.presenter.StarWarsFilmPresenter;
+import com.pietrantuono.offser.films.view.FilmsView;
 
 import org.junit.Before;
 import org.junit.Test;

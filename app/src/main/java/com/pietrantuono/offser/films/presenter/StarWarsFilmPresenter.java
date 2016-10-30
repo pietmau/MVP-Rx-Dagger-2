@@ -1,8 +1,8 @@
-package com.pietrantuono.offser.presenter.films;
+package com.pietrantuono.offser.films.presenter;
 
 import com.pietrantuono.offser.model.StarWarsModel;
 import com.pietrantuono.offser.model.api.pojos.AllFilms;
-import com.pietrantuono.offser.view.films.FilmsView;
+import com.pietrantuono.offser.films.view.FilmsView;
 
 import rx.Observer;
 

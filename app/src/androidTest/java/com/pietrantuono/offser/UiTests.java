@@ -4,7 +4,7 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.pietrantuono.offser.dagger.main.StarWarsApiMock;
-import com.pietrantuono.offser.view.main.MainActivity;
+import com.pietrantuono.offser.main.view.MainActivity;
 
 import org.junit.Rule;
 import org.junit.Test;

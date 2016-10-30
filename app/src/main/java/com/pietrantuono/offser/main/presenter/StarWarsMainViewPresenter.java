@@ -1,11 +1,10 @@
-package com.pietrantuono.offser.presenter.main;
+package com.pietrantuono.offser.main.presenter;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.pietrantuono.offser.R;
-import com.pietrantuono.offser.presenter.main.MainViewPresenter;
-import com.pietrantuono.offser.view.main.MainView;
+import com.pietrantuono.offser.main.view.MainView;
 
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.

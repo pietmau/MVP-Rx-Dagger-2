@@ -2,8 +2,8 @@ package com.pietrantuono.offser.tests;
 
 import android.os.Bundle;
 
-import com.pietrantuono.offser.presenter.main.StarWarsMainViewPresenter;
-import com.pietrantuono.offser.view.main.MainView;
+import com.pietrantuono.offser.main.presenter.StarWarsMainViewPresenter;
+import com.pietrantuono.offser.main.view.MainView;
 
 import org.junit.Before;
 import org.junit.Test;

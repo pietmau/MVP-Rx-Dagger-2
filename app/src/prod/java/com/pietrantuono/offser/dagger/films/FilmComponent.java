@@ -1,7 +1,7 @@
 package com.pietrantuono.offser.dagger.films;
 
 import com.pietrantuono.offser.dagger.main.MainComponent;
-import com.pietrantuono.offser.view.films.FilmsFragment;
+import com.pietrantuono.offser.films.view.FilmsFragment;
 
 import dagger.Component;
 

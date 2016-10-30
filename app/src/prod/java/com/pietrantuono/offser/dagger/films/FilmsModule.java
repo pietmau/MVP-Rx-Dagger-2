@@ -1,8 +1,9 @@
 package com.pietrantuono.offser.dagger.films;
 
+import com.pietrantuono.offser.films.presenter.FilmsPresenter;
+import com.pietrantuono.offser.films.presenter.StarWarsFilmPresenter;
 import com.pietrantuono.offser.model.StarWarsModel;
-import com.pietrantuono.offser.presenter.films.FilmsPresenter;
-import com.pietrantuono.offser.presenter.films.StarWarsFilmPresenter;
+
 
 import dagger.Module;
 import dagger.Provides;

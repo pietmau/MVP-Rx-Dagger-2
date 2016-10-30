@@ -1,4 +1,4 @@
-package com.pietrantuono.offser.view.films;
+package com.pietrantuono.offser.people.view;
 
 
 import android.os.Bundle;
@@ -11,29 +11,29 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pietrantuono.offser.R;
-import com.pietrantuono.offser.dagger.films.DaggerFilmComponent;
-import com.pietrantuono.offser.dagger.films.FilmsModule;
 import com.pietrantuono.offser.dagger.main.MainComponent;
-import com.pietrantuono.offser.model.api.pojos.Film;
-import com.pietrantuono.offser.presenter.films.FilmsPresenter;
-import com.pietrantuono.offser.view.main.MainActivity;
+import com.pietrantuono.offser.dagger.people.DaggerPeopleComponent;
+import com.pietrantuono.offser.dagger.people.PeopleModule;
+import com.pietrantuono.offser.model.api.pojos.Person;
+import com.pietrantuono.offser.people.presenter.PeoplePresenter;
+import com.pietrantuono.offser.main.view.MainActivity;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
 
-public class FilmsFragment extends Fragment implements FilmsView {
-    public static final String FILMS_TAG = "films";
+public class PeopleFragment extends Fragment implements PeopleView {
+    public static final String PEOPLE_TAG = "persons";
     @Inject
-    FilmsPresenter filmsPresenter;
+    PeoplePresenter peoplePresenter;
     private RecyclerView recyclerView;
 
-    public FilmsFragment() {
+    public PeopleFragment() {
     }
 
-    public static FilmsFragment newInstance() {
-        return new FilmsFragment();
+    public static PeopleFragment newInstance() {
+        return new PeopleFragment();
     }
 
     @Override
@@ -50,24 +50,24 @@ public class FilmsFragment extends Fragment implements FilmsView {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         super.onCreate(savedInstanceState);
-        DaggerFilmComponent.builder()
+        DaggerPeopleComponent.builder()
                 .mainComponent(getMainComponent())
-                .filmsModule(new FilmsModule())
+                .peopleModule(new PeopleModule())
                 .build()
-                .inject(FilmsFragment.this);
-        filmsPresenter.setView(FilmsFragment.this);
+                .inject(PeopleFragment.this);
+        peoplePresenter.setView(PeopleFragment.this);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        filmsPresenter.onPause();
+        peoplePresenter.onPause();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        filmsPresenter.onResume();
+        peoplePresenter.onResume();
     }
 
     private MainComponent getMainComponent() {
@@ -75,8 +75,8 @@ public class FilmsFragment extends Fragment implements FilmsView {
     }
 
     @Override
-    public void showFilms(List<Film> films) {
-        recyclerView.setAdapter(new FilmsAdapter(films));
+    public void showPersons(List<Person> persons) {
+        recyclerView.setAdapter(new PeopleAdapter(persons));
     }
 
     @Override
@@ -93,4 +93,6 @@ public class FilmsFragment extends Fragment implements FilmsView {
     public void hideLoading() {
 
     }
+
+
 }

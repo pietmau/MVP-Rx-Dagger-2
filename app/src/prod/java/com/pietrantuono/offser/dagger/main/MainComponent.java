@@ -1,8 +1,8 @@
 package com.pietrantuono.offser.dagger.main;
 
 import com.pietrantuono.offser.StarWarsApplication;
+import com.pietrantuono.offser.main.view.MainActivity;
 import com.pietrantuono.offser.model.StarWarsModel;
-import com.pietrantuono.offser.view.main.MainActivity;
 
 import javax.inject.Singleton;
 
