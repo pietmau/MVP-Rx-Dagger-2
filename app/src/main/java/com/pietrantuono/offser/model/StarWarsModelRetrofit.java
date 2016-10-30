@@ -1,7 +1,5 @@
 package com.pietrantuono.offser.model;
 
-import android.util.Log;
-
 import com.pietrantuono.offser.StarWarsApplication;
 import com.pietrantuono.offser.model.api.pojos.AllFilms;
 import com.pietrantuono.offser.model.api.pojos.AllPeople;
@@ -18,20 +16,12 @@ public class StarWarsModelRetrofit implements StarWarsModel {
     private Subscription filmsSubscription;
     private Subscription peopleSubscription;
     private final StarWarsApplication app;
-    private static StarWarsModelRetrofit instance;
 
-    private StarWarsModelRetrofit(StarWarsApplication app) {
+    public StarWarsModelRetrofit(StarWarsApplication app) {
         this.app = app;
     }
 
-    public static StarWarsModelRetrofit getInstance(StarWarsApplication app) {
-        if (instance == null) {
-            instance = new StarWarsModelRetrofit(app);
-        }
-        return instance;
-    }
-
-    @Override
+     @Override
     public void subscribeToFilms(Observer<? super AllFilms> observer) {
         filmsSubscription = app.getCachedFilmsObservable().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }

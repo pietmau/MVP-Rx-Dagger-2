@@ -17,7 +17,7 @@ The Presenters subscribe to the Model via Observers (Rx) to receive the data.The
 We need to store the cached requests themselves so that they survive config changes, otherwise there would be no benefit in caching. 
 I decided to store them in the Application class. I am aware this approach can be discussed, other solutions are possible: 
 use a Service (started service to outlive the Activity config changes, bound to allow communication), use a retained Fragment, store 
-them in the Singleton Model itself. 
+them in a Singleton. 
 
 Dependencies are injected using Dagger 2.
 

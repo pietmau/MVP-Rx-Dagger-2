@@ -32,7 +32,7 @@ public class MainModule {
     @Singleton
     @Provides
     StarWarsModel provideMainModel(StarWarsApi starWarsApi, StarWarsApplication app) {
-        return StarWarsModelRetrofit.getInstance(app);
+        return new StarWarsModelRetrofit(app);
     }
 
     @Provides

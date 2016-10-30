@@ -67,17 +67,6 @@ public class StarWarsFilmPresenterTests {
     }
 
     @Test
-    public void givenPresenter_whenOnComplete_thenUnsubscribes() {
-        // GIVEN
-        presenter.onResume();
-        verify(model).subscribeToFilms(captor.capture());
-        // WHEN
-        captor.getValue().onCompleted();
-        // THEN
-        verify(model).unSubscribeToFilms();
-    }
-
-    @Test
     public void givenPresenter_whenOnError_thenShowErrorCalled() {
         // GIVEN
         presenter.onResume();

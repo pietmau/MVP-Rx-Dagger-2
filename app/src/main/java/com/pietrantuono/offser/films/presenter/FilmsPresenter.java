@@ -1,7 +1,5 @@
 package com.pietrantuono.offser.films.presenter;
 
-import android.support.annotation.NonNull;
-
 import com.pietrantuono.offser.films.view.FilmsView;
 import com.pietrantuono.offser.people.presenter.StarWarsListPresenter;
 
