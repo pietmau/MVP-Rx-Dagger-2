@@ -1,5 +1,7 @@
 package com.pietrantuono.offser.people.view;
 
+import android.support.annotation.NonNull;
+
 import com.pietrantuono.offser.model.api.pojos.Person;
 import com.pietrantuono.offser.shared.StarWarsView;
 
@@ -11,5 +13,5 @@ import java.util.List;
 
 public interface PeopleView extends StarWarsView {
 
-    void showPersons(List<Person> persons);
+    void showPersons(@NonNull List<Person> persons);
 }

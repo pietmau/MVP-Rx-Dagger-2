@@ -7,6 +7,7 @@ To run the instrumented tests please select the "mock" flavour, it injects a moc
 
 ###Tests
 JUnit and Instrumented (Espresso) tests are present in the respective source folders.
+Tests use Mockito for mocking, verify and captors.
 Coverage is 19% of classes, 10% of lines. 
 More tests need to be written.
 
@@ -33,9 +34,9 @@ The first question would be: which are the key info to show in the list, because
 about what to show (I do not show the film url, the film crawl, the person url, the starship url, etc.).
 
 ###What to do next
-- We really need to give the user a progress indicator while data are loading.
+- We really need to give the user a progress indicator while data are loading (the views have a stub for it now).
+- We really need to give some error message if it's the case (the presenters have a stub for it now).
 - We should implement retry in case the server did not respond. 
-- We should be able to give some error message if it's the case (the presenters have a stub for it now).
 - The cards in the lists need some design.
 
 

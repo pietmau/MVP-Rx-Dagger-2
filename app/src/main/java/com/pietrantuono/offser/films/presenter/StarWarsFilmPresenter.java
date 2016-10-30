@@ -44,7 +44,7 @@ public class StarWarsFilmPresenter implements FilmsPresenter {
             }
 
             @Override
-            public void onNext(AllFilms allFilms) {
+            public void onNext(@Nullable AllFilms allFilms) {
                 if (allFilms == null || allFilms.getFilms() == null) {
                     return;
                 }

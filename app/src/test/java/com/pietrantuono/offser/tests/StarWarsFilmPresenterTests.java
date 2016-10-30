@@ -72,7 +72,7 @@ public class StarWarsFilmPresenterTests {
         presenter.onResume();
         verify(model).subscribeToFilms(captor.capture());
         // WHEN
-        String ERROR = "tis_is_an_error";
+        String ERROR = "this_is_an_error";
         captor.getValue().onError(new Throwable(ERROR));
         // THEN
         verify(view).showError(ERROR);

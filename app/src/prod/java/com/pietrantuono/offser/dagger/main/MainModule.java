@@ -1,5 +1,7 @@
 package com.pietrantuono.offser.dagger.main;
 
+import android.support.annotation.NonNull;
+
 import com.pietrantuono.offser.StarWarsApplication;
 import com.pietrantuono.offser.main.presenter.MainViewPresenter;
 import com.pietrantuono.offser.main.presenter.StarWarsMainViewPresenter;
@@ -18,9 +20,10 @@ import dagger.Provides;
  */
 @Module
 public class MainModule {
+    @NonNull
     private final StarWarsApplication application;
 
-    public MainModule(StarWarsApplication application) {
+    public MainModule(@NonNull StarWarsApplication application) {
         this.application = application;
     }
 

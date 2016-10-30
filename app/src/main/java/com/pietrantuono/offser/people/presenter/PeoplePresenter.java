@@ -1,5 +1,7 @@
 package com.pietrantuono.offser.people.presenter;
 
+import android.support.annotation.NonNull;
+
 import com.pietrantuono.offser.people.view.PeopleView;
 import com.pietrantuono.offser.shared.StarWarsPresenter;
 
@@ -8,5 +10,5 @@ import com.pietrantuono.offser.shared.StarWarsPresenter;
  */
 public interface PeoplePresenter extends StarWarsPresenter {
 
-    void setView(PeopleView peopleView);
+    void setView(@NonNull PeopleView peopleView);
 }

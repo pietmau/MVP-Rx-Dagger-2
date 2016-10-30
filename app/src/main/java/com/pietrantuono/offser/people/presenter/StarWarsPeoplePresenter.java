@@ -1,5 +1,8 @@
 package com.pietrantuono.offser.people.presenter;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import com.pietrantuono.offser.model.StarWarsModel;
 import com.pietrantuono.offser.model.api.pojos.AllPeople;
 import com.pietrantuono.offser.people.view.PeopleView;
@@ -10,15 +13,15 @@ import rx.Observer;
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
  */
 public class StarWarsPeoplePresenter implements PeoplePresenter {
-    private final StarWarsModel starWarsModel;
+    @NonNull private final StarWarsModel starWarsModel;
     private PeopleView view;
 
-    public StarWarsPeoplePresenter(StarWarsModel starWarsModel) {
+    public StarWarsPeoplePresenter(@NonNull StarWarsModel starWarsModel) {
         this.starWarsModel = starWarsModel;
     }
 
     @Override
-    public void setView(PeopleView peopleView) {
+    public void setView(@NonNull PeopleView peopleView) {
         this.view = peopleView;
     }
 
@@ -40,7 +43,7 @@ public class StarWarsPeoplePresenter implements PeoplePresenter {
             }
 
             @Override
-            public void onNext(AllPeople allPeople) {
+            public void onNext(@Nullable AllPeople allPeople) {
                 if (allPeople == null || allPeople.getPersons() == null) {
                     return;
                 }

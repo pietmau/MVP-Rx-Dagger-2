@@ -1,6 +1,8 @@
 package com.pietrantuono.offser.main.presenter;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.MenuItem;
 
 import com.pietrantuono.offser.main.view.MainView;
@@ -10,7 +12,7 @@ import com.pietrantuono.offser.main.view.MainView;
  */
 public interface MainViewPresenter {
 
-    void onCreate(MainView mainView, Bundle savedInstanceState);
+    void onCreate(@NonNull MainView mainView, @Nullable Bundle savedInstanceState);
 
     void onGoToFilmsClicked();
 

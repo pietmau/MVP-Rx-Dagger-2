@@ -2,6 +2,7 @@ package com.pietrantuono.offser.people.view;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -74,12 +75,12 @@ public class PeopleFragment extends Fragment implements PeopleView {
     }
 
     @Override
-    public void showPersons(List<Person> persons) {
+    public void showPersons(@NonNull List<Person> persons) {
         recyclerView.setAdapter(new PeopleAdapter(persons));
     }
 
     @Override
-    public void showError(String message) {
+    public void showError(@Nullable String message) {
 
     }
 

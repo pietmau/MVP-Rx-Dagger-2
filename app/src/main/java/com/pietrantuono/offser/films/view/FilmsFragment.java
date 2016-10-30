@@ -80,7 +80,7 @@ public class FilmsFragment extends Fragment implements FilmsView {
     }
 
     @Override
-    public void showError(String message) {
+    public void showError(@Nullable String message) {
 
     }
 
