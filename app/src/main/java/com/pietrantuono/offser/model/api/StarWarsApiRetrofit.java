@@ -19,7 +19,7 @@ public class StarWarsApiRetrofit implements StarWarsApi {
     public StarWarsApiRetrofit() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create()) // TODO add custom converter
+                .addConverterFactory(GsonConverterFactory.create()) // TODO would be nicer to use a custom converter to extract the list
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
         api = retrofit.create(StarWarsApi.class);

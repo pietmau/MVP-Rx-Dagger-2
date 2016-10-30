@@ -32,10 +32,11 @@ for switching the `Fragments`. This would need to be discussed if appropriate fo
 The first question would be: which are the key info to show in the list, because I made some assumptions 
 about what to show (I do not show the film url, the film crawl, the person url, the starship url, etc.).
 
-###Need to do next
+###What to do next
 - We really need to give the user a progress indicator while data are loading.
-- We should be able to give some error message if it's the case (the presenters have a stub for it now)
-- The cards in the lists need some design
+- We should implement retry in case the server did not respond. 
+- We should be able to give some error message if it's the case (the presenters have a stub for it now).
+- The cards in the lists need some design.
 
 
 

@@ -14,8 +14,7 @@ import rx.schedulers.Schedulers;
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
  */
-public class StarWarsModelRetrofit implements StarWarsModel {  //TODO change name
-    private static final String TAG = StarWarsModelRetrofit.class.getSimpleName();
+public class StarWarsModelRetrofit implements StarWarsModel {
     private Subscription filmsSubscription;
     private Subscription peopleSubscription;
     private final StarWarsApplication app;
@@ -40,7 +39,6 @@ public class StarWarsModelRetrofit implements StarWarsModel {  //TODO change nam
     @Override
     public void unSubscribeToFilms() {
             filmsSubscription.unsubscribe();
-
     }
 
     @Override
