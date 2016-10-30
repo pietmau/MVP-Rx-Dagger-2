@@ -34,9 +34,7 @@ The first question would be: which are the key info to show in the list, because
 about what to show (I do not show the film url, the film crawl, the person url, the starship url, etc.).
 
 ###What to do next
-- We really need to give the user a progress indicator while data are loading (the views have a stub for it now).
-- We really need to give some error message if it's the case (the presenters have a stub for it now).
-- We should implement retry in case the server did not respond. 
+- Implement retry in case of error. 
 - The cards in the lists need some design.
 
 

@@ -9,6 +9,5 @@ public interface StarWarsView {
 
     void showError(@Nullable String message);
 
-    void showLoading();
 
 }

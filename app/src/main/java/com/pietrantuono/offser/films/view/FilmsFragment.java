@@ -93,9 +93,4 @@ public class FilmsFragment extends Fragment implements FilmsView {
             errorText.setText(message);
         }
     }
-
-    @Override
-    public void showLoading() {
-        switcher.setDisplayedChild(1);
-    }
 }

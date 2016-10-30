@@ -93,9 +93,4 @@ public class PeopleFragment extends Fragment implements PeopleView {
             errorText.setText(message);
         }
     }
-
-    @Override
-    public void showLoading() {
-        switcher.setDisplayedChild(1);
-    }
 }

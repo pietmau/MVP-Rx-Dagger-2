@@ -10,20 +10,15 @@ import com.pietrantuono.offser.model.api.StarWarsApi;
 import com.pietrantuono.offser.model.api.pojos.AllFilms;
 import com.pietrantuono.offser.model.api.pojos.AllPeople;
 
-import java.io.IOException;
-import java.io.InterruptedIOException;
-
 import javax.inject.Inject;
 
 import rx.Observable;
-import rx.functions.Func1;
 
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
  */
 
 public class StarWarsApplication extends Application {
-    private static final String TAG = StarWarsApplication.class.getSimpleName();
     private Observable<AllFilms> cachedFilmsObservable;
     private Observable<AllPeople> cachedPeopleObservable;
     private MainComponent injector;
@@ -32,7 +27,6 @@ public class StarWarsApplication extends Application {
 
     @Override
     public void onCreate() {
-        Log.e(TAG, "onCreate");
         super.onCreate();
         injector = DaggerMainComponent.builder()
                 .mainModule(new MainModule(StarWarsApplication.this))
