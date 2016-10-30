@@ -18,8 +18,8 @@ import rx.Observable;
  */
 
 public class StarWarsApplication extends Application {
-    private static Observable<AllFilms> cachedFilmsObservable;
-    private static Observable<AllPeople> cachedPeopleObservable;
+    private Observable<AllFilms> cachedFilmsObservable;
+    private Observable<AllPeople> cachedPeopleObservable;
     private MainComponent injector;
     @Inject
     StarWarsApi starWarsApi;
