@@ -19,6 +19,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import rx.Observable;
+import rx.functions.Func1;
 
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
@@ -45,19 +46,23 @@ public class MainModule {
     @Singleton
     @Provides
     Observable<AllFilms> provideAllFilms(StarWarsApi starWarsApi) {
+        // Here we transform a series of Observables that emit a Throwable into one Observable (hence flattened)
+        // that emits a series of either onComplete() or onError()
         return starWarsApi.getAllFilms().retryWhen(exceptions -> exceptions.flatMap(exception -> {
-                    // We retry only in this case
-                    if (exception instanceof InterruptedIOException) {
-                        return Observable.just(null);
-                    }
-                    return Observable.error(exception);
-                })
+            // We retry only in this case
+            if (exception instanceof InterruptedIOException) {
+                return Observable.just(null);
+            }
+            return Observable.error(exception);
+        })
         ).cache();
     }
 
     @Singleton
     @Provides
     Observable<AllPeople> provideAllPeople(StarWarsApi starWarsApi) {
+        // Here we transform a series of Observables that emit a Throwable into one Observable (hence flattened)
+        // that emits a series of either onComplete() or onError()
         return starWarsApi.getAllPeople().retryWhen(exceptions -> exceptions.flatMap(exception -> {
                     // We retry only in this case
                     if (exception instanceof InterruptedIOException) {
