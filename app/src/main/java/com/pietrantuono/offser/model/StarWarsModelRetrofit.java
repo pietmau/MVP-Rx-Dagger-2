@@ -6,6 +6,9 @@ import com.pietrantuono.offser.StarWarsApplication;
 import com.pietrantuono.offser.model.api.pojos.AllFilms;
 import com.pietrantuono.offser.model.api.pojos.AllPeople;
 
+import javax.inject.Inject;
+
+import rx.Observable;
 import rx.Observer;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -17,16 +20,17 @@ import rx.schedulers.Schedulers;
 public class StarWarsModelRetrofit implements StarWarsModel {
     private Subscription filmsSubscription;
     private Subscription peopleSubscription;
-    @NonNull
-    private final StarWarsApplication app;
+    private final Observable<AllPeople> allPeopleObservable;
+    private final Observable<AllFilms> allFilmsObservable;
 
-    public StarWarsModelRetrofit(@NonNull StarWarsApplication app) {
-        this.app = app;
+    public StarWarsModelRetrofit(Observable<AllPeople> allPeopleObservable, Observable<AllFilms> allFilmsObservable) {
+        this.allPeopleObservable = allPeopleObservable;
+        this.allFilmsObservable = allFilmsObservable;
     }
 
     @Override
     public void subscribeToFilms(@NonNull Observer<? super AllFilms> observer) {
-        filmsSubscription = app.getCachedFilmsObservable().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+        filmsSubscription = allFilmsObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
 
     @Override
@@ -41,6 +45,6 @@ public class StarWarsModelRetrofit implements StarWarsModel {
 
     @Override
     public void subscribeToPeople(@NonNull Observer<? super AllPeople> observer) {
-        peopleSubscription = app.getCachedPeopleObservable().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+        peopleSubscription = allPeopleObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
 }

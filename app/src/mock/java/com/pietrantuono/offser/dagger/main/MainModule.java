@@ -3,29 +3,28 @@ package com.pietrantuono.offser.dagger.main;
 import android.support.annotation.NonNull;
 
 import com.pietrantuono.offser.StarWarsApplication;
+import com.pietrantuono.offser.main.presenter.MainViewPresenter;
+import com.pietrantuono.offser.main.presenter.StarWarsMainViewPresenter;
 import com.pietrantuono.offser.model.StarWarsModel;
 import com.pietrantuono.offser.model.StarWarsModelRetrofit;
 import com.pietrantuono.offser.model.api.StarWarsApi;
-import com.pietrantuono.offser.main.presenter.MainViewPresenter;
-import com.pietrantuono.offser.main.presenter.StarWarsMainViewPresenter;
+import com.pietrantuono.offser.model.api.StarWarsApiRetrofit;
+import com.pietrantuono.offser.model.api.pojos.AllFilms;
+import com.pietrantuono.offser.model.api.pojos.AllPeople;
+
+import java.io.InterruptedIOException;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import rx.Observable;
 
 /**
  * Created by Maurizio Pietrantuono, maurizio.pietrantuono@gmail.com.
  */
 @Module
 public class MainModule {
-    @NonNull
-    private final StarWarsApplication application;
-
-    public MainModule(@NonNull StarWarsApplication application) {
-        this.application = application;
-    }
-
     @Provides
     MainViewPresenter provideMainViewPresenter() {
         return new StarWarsMainViewPresenter();
@@ -33,8 +32,8 @@ public class MainModule {
 
     @Singleton
     @Provides
-    StarWarsModel provideMainModel(StarWarsApplication app) {
-        return new StarWarsModelRetrofit(app);
+    StarWarsModel provideMainModel(Observable<AllPeople> allPeopleObservable, Observable<AllFilms> allFilmsObservable) {
+        return new StarWarsModelRetrofit(allPeopleObservable, allFilmsObservable);
     }
 
     @Provides
@@ -43,8 +42,29 @@ public class MainModule {
         return new StarWarsApiMock();
     }
 
+    @Singleton
     @Provides
-    StarWarsApplication provideStarWarsApplication() {
-        return application;
+    Observable<AllFilms> provideAllFilms(StarWarsApi starWarsApi) {
+        return starWarsApi.getAllFilms().retryWhen(exceptions -> exceptions.flatMap(exception -> {
+                    // We retry only in this case
+                    if (exception instanceof InterruptedIOException) {
+                        return Observable.just(null);
+                    }
+                    return Observable.error(exception);
+                })
+        ).cache();
+    }
+
+    @Singleton
+    @Provides
+    Observable<AllPeople> provideAllPeople(StarWarsApi starWarsApi) {
+        return starWarsApi.getAllPeople().retryWhen(exceptions -> exceptions.flatMap(exception -> {
+                    // We retry only in this case
+                    if (exception instanceof InterruptedIOException) {
+                        return Observable.just(null);
+                    }
+                    return Observable.error(exception);
+                })
+        ).cache();
     }
 }
